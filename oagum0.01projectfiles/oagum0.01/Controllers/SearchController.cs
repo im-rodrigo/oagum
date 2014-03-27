@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
-using oagum0._01.JsonMigration;
 using oagum0._01.Models;
 
 namespace oagum0._01.Controllers
@@ -15,9 +13,6 @@ namespace oagum0._01.Controllers
         // GET: /Search/
         public ActionResult Index()
         {
-            JsonMigration.JsonMigrator migrator = new JsonMigrator(); 
-            migrator.Migrate();
-            Article testArticle = migrator.getDeserializedArticle();
             return View();
         }
         public string Welcome(string name, int numTimes = 1)
