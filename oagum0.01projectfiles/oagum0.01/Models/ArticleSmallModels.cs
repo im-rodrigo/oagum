@@ -7,5 +7,6 @@ namespace oagum0._01.Models
 {
     public class ArticleSmallModels
     {
+        //helloooooooooooo.....
     }
 }
