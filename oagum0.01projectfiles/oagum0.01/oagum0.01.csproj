@@ -43,6 +43,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -159,6 +161,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AuthorSmallMetadataController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Global.asax.cs">
@@ -166,7 +169,26 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Article.cs" />
+    <Compile Include="Models\ArticleSmallModels.cs" />
+    <Compile Include="Models\AuthorSmallMetadataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AuthorSmallMetadataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AuthorSmallMetadataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AuthorSmallMetadataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AuthorSmallMetadataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AuthorSmallMetadataModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\T_AuthorSmallMeDa.cs">
+      <DependentUpon>AuthorSmallMetadataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -180,6 +202,23 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\AuthorSmallMetadataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AuthorSmallMetadataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\AuthorSmallMetadataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AuthorSmallMetadataModel.edmx</DependentUpon>
+      <LastGenOutput>AuthorSmallMetadataModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\AuthorSmallMetadataModel.edmx.diagram">
+      <DependentUpon>AuthorSmallMetadataModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\AuthorSmallMetadataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AuthorSmallMetadataModel.edmx</DependentUpon>
+      <LastGenOutput>AuthorSmallMetadataModel.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -218,6 +257,11 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Search\Index.cshtml" />
+    <Content Include="Views\AuthorSmallMetadata\Create.cshtml" />
+    <Content Include="Views\AuthorSmallMetadata\Delete.cshtml" />
+    <Content Include="Views\AuthorSmallMetadata\Details.cshtml" />
+    <Content Include="Views\AuthorSmallMetadata\Edit.cshtml" />
+    <Content Include="Views\AuthorSmallMetadata\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -228,6 +272,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
