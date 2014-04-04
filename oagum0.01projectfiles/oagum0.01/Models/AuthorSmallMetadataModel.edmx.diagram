@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="fed9e94fbbfa4f8e9e62dd03dcea9398" Name="Diagram1">
-        <EntityTypeShape EntityType="OagumDB.MetadataModel.T_AuthorSmallMeDa" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OagumDB.MetadataModel.T_AuthorSmallMeDa" Width="1.5" PointX="1.5" PointY="2" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
