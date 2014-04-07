@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OagumDBArticleAuthorRelationshipNamespaceStoreContainer" CdmEntityContainer="ArticleAuthorRelationshipEntities">
+    <EntitySetMapping Name="T_Article">
+      <EntityTypeMapping TypeName="OagumDB.ArticleAuthorRelationshipNamespace.T_Article">
+        <MappingFragment StoreEntitySet="T_Article">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_ArticleAuthor">
+      <EntityTypeMapping TypeName="OagumDB.ArticleAuthorRelationshipNamespace.T_ArticleAuthor">
+        <MappingFragment StoreEntitySet="T_ArticleAuthor">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ArticleId" ColumnName="ArticleId" />
+          <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Author">
+      <EntityTypeMapping TypeName="OagumDB.ArticleAuthorRelationshipNamespace.T_Author">
+        <MappingFragment StoreEntitySet="T_Author">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OagumDBArticleAuthorMetadataNamespaceStoreContainer" CdmEntityContainer="ArticleAuthorMetadataEntities">
+    <EntitySetMapping Name="T_ArticleAuthor">
+      <EntityTypeMapping TypeName="OagumDB.ArticleAuthorMetadataNamespace.T_ArticleAuthor">
+        <MappingFragment StoreEntitySet="T_ArticleAuthor">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ArticleId" ColumnName="ArticleId" />
+          <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -160,7 +160,68 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="ArticleAuthorMetadataModels.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ArticleAuthorMetadataModels.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ArticleAuthorMetadataModels.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ArticleAuthorMetadataModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ArticleAuthorMetadataModels.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ArticleAuthorMetadataModels.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ArticleAuthorRelationshipModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ArticleAuthorRelationshipModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ArticleAuthorRelationshipModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ArticleAuthorRelationshipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ArticleAuthorRelationshipModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ArticleAuthorRelationshipModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ArticleMetadataModels.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ArticleMetadataModels.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ArticleMetadataModels.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ArticleMetadataModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ArticleMetadataModels.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ArticleMetadataModels.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="AuthorMetadataModels.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AuthorMetadataModels.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AuthorMetadataModels.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AuthorMetadataModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AuthorMetadataModels.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AuthorMetadataModels.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Article_ArtAutRelController.cs" />
     <Compile Include="Controllers\AuthorSmallMetadataController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
@@ -191,11 +252,21 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="T_Article.cs">
+      <DependentUpon>ArticleAuthorRelationshipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_ArticleAuthor.cs">
+      <DependentUpon>ArticleAuthorRelationshipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_Author.cs">
+      <DependentUpon>ArticleAuthorRelationshipModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="extrafiles\oaidata01.txt" />
+    <Content Include="extrafiles\SQLQuery1.sql" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -218,6 +289,74 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>AuthorSmallMetadataModel.edmx</DependentUpon>
       <LastGenOutput>AuthorSmallMetadataModel.cs</LastGenOutput>
+    </Content>
+    <EntityDeploy Include="AuthorMetadataModels.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AuthorMetadataModels.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="AuthorMetadataModels.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AuthorMetadataModels.edmx</DependentUpon>
+      <LastGenOutput>AuthorMetadataModels.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="AuthorMetadataModels.edmx.diagram">
+      <DependentUpon>AuthorMetadataModels.edmx</DependentUpon>
+    </Content>
+    <Content Include="AuthorMetadataModels.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AuthorMetadataModels.edmx</DependentUpon>
+      <LastGenOutput>AuthorMetadataModels.cs</LastGenOutput>
+    </Content>
+    <EntityDeploy Include="ArticleMetadataModels.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ArticleMetadataModels.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="ArticleMetadataModels.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ArticleMetadataModels.edmx</DependentUpon>
+      <LastGenOutput>ArticleMetadataModels.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ArticleMetadataModels.edmx.diagram">
+      <DependentUpon>ArticleMetadataModels.edmx</DependentUpon>
+    </Content>
+    <Content Include="ArticleMetadataModels.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ArticleMetadataModels.edmx</DependentUpon>
+      <LastGenOutput>ArticleMetadataModels.cs</LastGenOutput>
+    </Content>
+    <EntityDeploy Include="ArticleAuthorMetadataModels.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ArticleAuthorMetadataModels.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="ArticleAuthorMetadataModels.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ArticleAuthorMetadataModels.edmx</DependentUpon>
+      <LastGenOutput>ArticleAuthorMetadataModels.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ArticleAuthorMetadataModels.edmx.diagram">
+      <DependentUpon>ArticleAuthorMetadataModels.edmx</DependentUpon>
+    </Content>
+    <Content Include="ArticleAuthorMetadataModels.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ArticleAuthorMetadataModels.edmx</DependentUpon>
+      <LastGenOutput>ArticleAuthorMetadataModels.cs</LastGenOutput>
+    </Content>
+    <EntityDeploy Include="ArticleAuthorRelationshipModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ArticleAuthorRelationshipModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="ArticleAuthorRelationshipModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ArticleAuthorRelationshipModel.edmx</DependentUpon>
+      <LastGenOutput>ArticleAuthorRelationshipModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ArticleAuthorRelationshipModel.edmx.diagram">
+      <DependentUpon>ArticleAuthorRelationshipModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="ArticleAuthorRelationshipModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ArticleAuthorRelationshipModel.edmx</DependentUpon>
+      <LastGenOutput>ArticleAuthorRelationshipModel.cs</LastGenOutput>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -262,6 +401,11 @@
     <Content Include="Views\AuthorSmallMetadata\Details.cshtml" />
     <Content Include="Views\AuthorSmallMetadata\Edit.cshtml" />
     <Content Include="Views\AuthorSmallMetadata\Index.cshtml" />
+    <Content Include="Views\Article_ArtAutRel\Create.cshtml" />
+    <Content Include="Views\Article_ArtAutRel\Delete.cshtml" />
+    <Content Include="Views\Article_ArtAutRel\Details.cshtml" />
+    <Content Include="Views\Article_ArtAutRel\Edit.cshtml" />
+    <Content Include="Views\Article_ArtAutRel\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="OagumDB.ArticleAuthorRelationshipNamespace.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="T_Article">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="400" />
+          <Property Name="PublishDate" Type="datetime" />
+          <Property Name="Description" Type="text" />
+          <Property Name="Source" Type="nvarchar" MaxLength="400" />
+          <Property Name="InsertDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="T_ArticleAuthor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ArticleId" Type="int" Nullable="false" />
+          <Property Name="AuthorId" Type="int" Nullable="false" />
+          <Property Name="InsertDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="T_Author">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="InsertDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <Association Name="FK_dbo_T_ArticleAuthor_dbo_T_Article_ArticleId">
+          <End Role="T_Article" Type="Self.T_Article" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="T_ArticleAuthor" Type="Self.T_ArticleAuthor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Article">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_ArticleAuthor">
+              <PropertyRef Name="ArticleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_T_ArticleAuthor_dbo_T_Author_AuthorId">
+          <End Role="T_Author" Type="Self.T_Author" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="T_ArticleAuthor" Type="Self.T_ArticleAuthor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Author">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_ArticleAuthor">
+              <PropertyRef Name="AuthorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OagumDBArticleAuthorRelationshipNamespaceStoreContainer">
+          <EntitySet Name="T_Article" EntityType="Self.T_Article" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_ArticleAuthor" EntityType="Self.T_ArticleAuthor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Author" EntityType="Self.T_Author" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_T_ArticleAuthor_dbo_T_Article_ArticleId" Association="Self.FK_dbo_T_ArticleAuthor_dbo_T_Article_ArticleId">
+            <End Role="T_Article" EntitySet="T_Article" />
+            <End Role="T_ArticleAuthor" EntitySet="T_ArticleAuthor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_T_ArticleAuthor_dbo_T_Author_AuthorId" Association="Self.FK_dbo_T_ArticleAuthor_dbo_T_Author_AuthorId">
+            <End Role="T_Author" EntitySet="T_Author" />
+            <End Role="T_ArticleAuthor" EntitySet="T_ArticleAuthor" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OagumDB.ArticleAuthorRelationshipNamespace" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="T_Article">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="PublishDate" Type="DateTime" Precision="3" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Source" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="InsertDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="T_ArticleAuthor" Relationship="Self.FK_dbo_T_ArticleAuthor_dbo_T_Article_ArticleId" FromRole="T_Article" ToRole="T_ArticleAuthor" />
+        </EntityType>
+        <EntityType Name="T_ArticleAuthor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ArticleId" Type="Int32" Nullable="false" />
+          <Property Name="AuthorId" Type="Int32" Nullable="false" />
+          <Property Name="InsertDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="T_Article" Relationship="Self.FK_dbo_T_ArticleAuthor_dbo_T_Article_ArticleId" FromRole="T_ArticleAuthor" ToRole="T_Article" />
+          <NavigationProperty Name="T_Author" Relationship="Self.FK_dbo_T_ArticleAuthor_dbo_T_Author_AuthorId" FromRole="T_ArticleAuthor" ToRole="T_Author" />
+        </EntityType>
+        <EntityType Name="T_Author">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="InsertDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="T_ArticleAuthor" Relationship="Self.FK_dbo_T_ArticleAuthor_dbo_T_Author_AuthorId" FromRole="T_Author" ToRole="T_ArticleAuthor" />
+        </EntityType>
+        <Association Name="FK_dbo_T_ArticleAuthor_dbo_T_Article_ArticleId">
+          <End Role="T_Article" Type="Self.T_Article" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="T_ArticleAuthor" Type="Self.T_ArticleAuthor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Article">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_ArticleAuthor">
+              <PropertyRef Name="ArticleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_T_ArticleAuthor_dbo_T_Author_AuthorId">
+          <End Role="T_Author" Type="Self.T_Author" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="T_ArticleAuthor" Type="Self.T_ArticleAuthor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Author">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_ArticleAuthor">
+              <PropertyRef Name="AuthorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ArticleAuthorRelationshipEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="T_Article" EntityType="Self.T_Article" />
+          <EntitySet Name="T_ArticleAuthor" EntityType="Self.T_ArticleAuthor" />
+          <EntitySet Name="T_Author" EntityType="Self.T_Author" />
+          <AssociationSet Name="FK_dbo_T_ArticleAuthor_dbo_T_Article_ArticleId" Association="Self.FK_dbo_T_ArticleAuthor_dbo_T_Article_ArticleId">
+            <End Role="T_Article" EntitySet="T_Article" />
+            <End Role="T_ArticleAuthor" EntitySet="T_ArticleAuthor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_T_ArticleAuthor_dbo_T_Author_AuthorId" Association="Self.FK_dbo_T_ArticleAuthor_dbo_T_Author_AuthorId">
+            <End Role="T_Author" EntitySet="T_Author" />
+            <End Role="T_ArticleAuthor" EntitySet="T_ArticleAuthor" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OagumDBArticleAuthorRelationshipNamespaceStoreContainer" CdmEntityContainer="ArticleAuthorRelationshipEntities">
+          <EntitySetMapping Name="T_Article">
+            <EntityTypeMapping TypeName="OagumDB.ArticleAuthorRelationshipNamespace.T_Article">
+              <MappingFragment StoreEntitySet="T_Article">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_ArticleAuthor">
+            <EntityTypeMapping TypeName="OagumDB.ArticleAuthorRelationshipNamespace.T_ArticleAuthor">
+              <MappingFragment StoreEntitySet="T_ArticleAuthor">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ArticleId" ColumnName="ArticleId" />
+                <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Author">
+            <EntityTypeMapping TypeName="OagumDB.ArticleAuthorRelationshipNamespace.T_Author">
+              <MappingFragment StoreEntitySet="T_Author">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
