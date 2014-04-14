@@ -9,17 +9,32 @@ using System.Web.Mvc;
 using oagum0._01;
 using System.Data.SqlClient;
 using System.Text;
+using System.Dynamic;
+using System.ComponentModel;
 
 namespace oagum0._01.Controllers
 {
     public class Article_ArtAutRelController : Controller
-    {
+    {       
         private ArticleAuthorRelationshipEntities db = new ArticleAuthorRelationshipEntities();
 
-        // GET: /Article_ArtAutRel/
-        public ActionResult Index()
+        //// GET: /Article_ArtAutRel/
+        //public ActionResult Index()
+        //{
+        //    return View(db.T_Article.ToList());
+        //}
+
+        public ActionResult Index(string searchString)
         {
-            return View(db.T_Article.ToList());
+            var articles = from article in db.T_Article
+                           select article;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                articles = articles.Where(s => s.Title.Contains(searchString));
+            }
+
+            return View(articles);
         }
 
         // GET: /Article_ArtAutRel/Details/5
@@ -29,39 +44,47 @@ namespace oagum0._01.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             T_Article t_article = db.T_Article.Find(id);
             if (t_article == null)
             {
                 return HttpNotFound();
             }
-           
-            //var authors = 
-            //    from author in db.T_Author
-            //    join articleauthor in db.T_ArticleAuthor 
-            //    on author.ID equals articleauthor.AuthorId
-            //    select author 
-            //    wh
 
-            SqlConnection sqlConnection1 = new SqlConnection(db.Database.Connection.ConnectionString.ToString());
-            SqlCommand cmd = new SqlCommand();
-            SqlDataReader reader;
+            //var authorIDs = from autID in db.T_ArticleAuthor
+            //                select autID;
+            //authorIDs = authorIDs.Where(s => s.ArticleId.Equals(id));
 
-            cmd.CommandText = "select x.Name from T_Author x join T_ArticleAuthor y on y.AuthorId = x.ID  where y.ArticleId = " + t_article.ID.ToString();
-            cmd.CommandType = CommandType.Text;
-            cmd.Connection = sqlConnection1;
+            var authors =
+                (from author in db.T_Author
+                 join authorarticle in db.T_ArticleAuthor
+                 on author.ID equals authorarticle.AuthorId
+                 where (authorarticle.ArticleId == id)
+                 select new
+                 {
+                     author.Name
+                 });//.ToDictionary( t => t.Name);
+ 
+            //SqlConnection sqlConnection1 = new SqlConnection(db.Database.Connection.ConnectionString.ToString());
+            //SqlCommand cmd = new SqlCommand();
+            //SqlDataReader reader;
 
-            sqlConnection1.Open();
+             //cmd.CommandText = "select x.Name from T_Author x join T_ArticleAuthor y on y.AuthorId = x.ID  where y.ArticleId = " + t_article.ID.ToString();
+            //cmd.CommandType = CommandType.Text;
+            //cmd.Connection = sqlConnection1;
 
-            reader = cmd.ExecuteReader();
-            // Data is accessible through the DataReader object here.
-            StringBuilder authorstring = new StringBuilder(); 
-            while (reader.Read())
-            {
-                  ViewBag.Authors += reader.GetValue(0);
-                  ViewBag.Authors += "\r\n"; 
-            }
-            sqlConnection1.Close();
+            //sqlConnection1.Open();
 
+            //reader = cmd.ExecuteReader();
+            //// Data is accessible through the DataReader object here.
+            //StringBuilder authorstring = new StringBuilder(); 
+            //while (reader.Read())
+            //{
+            //      ViewBag.Authors += reader.GetValue(0);
+            //      ViewBag.Authors += "\r\n"; 
+            //}
+            //sqlConnection1.Close();
+            ViewBag.Authors = authors; 
             return View(t_article);
         }
 

@@ -9,16 +9,28 @@ namespace oagum0._01.Controllers
 {
     public class SearchController : Controller
     {
-        //
+        private ArticleAuthorRelationshipEntities db = new ArticleAuthorRelationshipEntities(); 
+
         // GET: /Search/
         public ActionResult Index()
         {
             return View();
         }
-        public string Welcome(string name, int numTimes = 1)
+
+        [HttpGet]
+        public ActionResult Results(string searchString)
         {
-            return HttpUtility.HtmlEncode("Hello" + name + ",Numtimes is: " + numTimes);
+            var articles = from article in db.T_Article
+                           select article;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                articles = articles.Where(s => s.Title.Contains(searchString));
+            }
+
+            return View(articles);
         }
+
         /*
         public string Index()
         {

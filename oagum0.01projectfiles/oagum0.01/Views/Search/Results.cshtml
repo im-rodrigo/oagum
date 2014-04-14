@@ -1,0 +1,42 @@
+﻿@model IEnumerable<oagum0._01.T_Article>
+
+@{
+    ViewBag.Title = "Results";
+}
+
+<h2>Results</h2>
+
+<table class="table">
+    @*<tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PublishDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Source)
+            </th>
+            <th></th>
+        </tr>*@
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <a href="@Html.DisplayFor(modelItem => item.Source)">
+                    @Html.DisplayFor(modelItem => item.Title)
+                </a>
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.PublishDate)
+            </td>*@
+            @*<td>
+                    <a href="@Html.DisplayFor(modelItem => item.Source)">
+                        @Html.DisplayFor(modelItem => item.Source)
+                    </a>
+                </td>*@
+        </tr>
+    }
+
+</table>

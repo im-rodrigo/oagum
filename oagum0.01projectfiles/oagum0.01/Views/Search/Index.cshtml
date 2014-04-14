@@ -7,5 +7,28 @@
 }
 
 <h2>@ViewBag.Title</h2>
-<p>search bar here</p>
-<p>query filter here</p>
+
+<div class="row">
+    <div class="col-lg-1">
+        @using (Html.BeginForm("Results",           //action name
+                      "Search",           //controller name
+                      null,            //explicit null for route values
+                      FormMethod.Get,  //explicitly set form method
+                      new { id = "form-horizontal", role = "form" }))
+        {  //explicitly id the form
+            //bunch of inputs, a la
+            <div class="searchString">
+                <table class="tab-pane">
+                    <tr class="tabbable">
+                        <td>
+                            @Html.TextBox("searchString")
+                        </td>
+                        <td>
+                            <input type="submit" value="Search" class="btn btn-xs" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        }
+    </div>
+</div>
