@@ -1,0 +1,51 @@
+﻿@model oagum0._01.Models.T_Article
+
+
+
+<tr>
+    <td>
+        <a id="displayPdf" href="@Model.Source">
+            @Model.Title
+        </a>
+    </td>
+    <td>
+        @Html.ActionLink("Details", "Details", new { id = Model.ID })
+    </td>
+</tr>
+<p style="display: none; position: absolute; left: 200px; top: 20px">
+    <iframe style="width: 618px; height: 800px" id="myFrame" src=""></iframe>
+</p>
+
+@section Script {
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#accordion").accordion({
+                heightStyle: "content",
+                collapsible: true
+            });
+        });
+        var href=@Model.Source
+        //$(function () {
+
+        //    $('#displayPdf').click(function (e) {
+        //        e.preventDefault();
+        //        $('#myFrame').attr("src", href + "#view=VFit" + "&toolbar=0" + "&navpanes=0");
+        //        $('.frameDiv').show();
+        //    });
+        //});
+
+        $('<iframe />').load(function () {
+            alert('the iframe is done loading');
+        }).appendTo('body');
+
+        $('#displayPdf').click(function (e) {
+            e.preventDefault();
+            $('#myFrame').attr("src", href + "#view=VFit" + "&toolbar=0" + "&navpanes=0");
+            $('.frameDiv').show();
+        });
+    </script>
+}

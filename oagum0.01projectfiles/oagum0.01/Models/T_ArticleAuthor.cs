@@ -7,26 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace oagum0._01
+namespace oagum0._01.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class T_Article
+    public partial class T_ArticleAuthor
     {
-        public T_Article()
-        {
-            this.T_ArticleAuthor = new HashSet<T_ArticleAuthor>();
-        }
-    
         public int ID { get; set; }
-        public string Title { get; set; }
-        public Nullable<System.DateTime> PublishDate { get; set; }
-        public string Description { get; set; }
-        public string Source { get; set; }
+        public int ArticleId { get; set; }
+        public int AuthorId { get; set; }
         public Nullable<System.DateTime> InsertDate { get; set; }
         public string CreatedBy { get; set; }
     
-        public virtual ICollection<T_ArticleAuthor> T_ArticleAuthor { get; set; }
+        public virtual T_Article T_Article { get; set; }
+        public virtual T_Author T_Author { get; set; }
     }
 }

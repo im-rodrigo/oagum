@@ -7,23 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace oagum0._01
+namespace oagum0._01.extrafiles
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class T_Author
+    public partial class T_Publisher
     {
-        public T_Author()
-        {
-            this.T_ArticleAuthor = new HashSet<T_ArticleAuthor>();
-        }
-    
         public int ID { get; set; }
         public string Name { get; set; }
         public Nullable<System.DateTime> InsertDate { get; set; }
-        public string CreatedBy { get; set; }
-    
-        public virtual ICollection<T_ArticleAuthor> T_ArticleAuthor { get; set; }
+        public Nullable<System.DateTime> CreatedUser { get; set; }
     }
 }

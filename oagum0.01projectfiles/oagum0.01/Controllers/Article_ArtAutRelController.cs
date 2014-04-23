@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using System.Text;
 using System.Dynamic;
 using System.ComponentModel;
+using oagum0._01.Models;
 
 namespace oagum0._01.Controllers
 {

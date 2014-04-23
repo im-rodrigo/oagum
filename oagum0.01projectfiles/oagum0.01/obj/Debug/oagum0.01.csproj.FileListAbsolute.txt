@@ -114,3 +114,7 @@ C:\Users\Rodrigo\CSci 126 git\csci152\oagum0.01projectfiles\oagum0.01\bin\System
 C:\Users\Rodrigo\CSci 126 git\csci152\oagum0.01projectfiles\oagum0.01\bin\System.Net.Http.Formatting.xml
 C:\Users\Rodrigo\CSci 126 git\csci152\oagum0.01projectfiles\oagum0.01\bin\System.Web.Http.xml
 C:\Users\Rodrigo\CSci 126 git\csci152\oagum0.01projectfiles\oagum0.01\bin\System.Web.Http.WebHost.xml
+C:\Users\Rodrigo\CSci 126 git\csci152\oagum0.01projectfiles\oagum0.01\bin\PagedList.dll
+C:\Users\Rodrigo\CSci 126 git\csci152\oagum0.01projectfiles\oagum0.01\bin\PagedList.Mvc.dll
+C:\Users\Rodrigo\CSci 126 git\csci152\oagum0.01projectfiles\oagum0.01\bin\PagedList.xml
+C:\Users\Rodrigo\CSci 126 git\csci152\oagum0.01projectfiles\oagum0.01\bin\PagedList.Mvc.xml

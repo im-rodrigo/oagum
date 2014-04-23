@@ -1,7 +1,4 @@
-﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
+﻿
 @{
     ViewBag.Title = "Amalgum";
 }
@@ -9,7 +6,7 @@
 <h2>@ViewBag.Title</h2>
 
 <div class="row show">
-    <div class="col-lg-12">
+    <div class="col-lg-3">
         @using (Html.BeginForm("Results",           //action name
                       "Search",           //controller name
                       null,            //explicit null for route values
@@ -18,7 +15,7 @@
         {  //explicitly id the form
             //bunch of inputs, a la
             <div class="input-group">
-                @Html.TextBox("searchString", null, new { @class = "form-control", style ="max-width:initial" })
+                @Html.TextBox("searchString", ViewBag.FilterString as string, new { @class = "form-control", style = "max-width:initial" })
                 <span class="input-group-btn">
                     <input type="submit" value="Search" class="btn btn-default" />
                 </span>

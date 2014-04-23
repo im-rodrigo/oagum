@@ -1,42 +1,47 @@
-﻿@model IEnumerable<oagum0._01.T_Article>
-
+﻿@*@model IEnumerable<oagum0._01.Models.T_Article>*@
+@model PagedList.IPagedList<oagum0._01.Models.T_Article>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" />
 @{
     ViewBag.Title = "Results";
+    var searchcount = ViewBag.SearchCount;
 }
 
-<h2>Results</h2>
+<div>
+    @Html.Partial("_Search")
+</div>
+<div>
+    <h2>Results</h2>
+    <p>
+        @searchcount articles found
+    </p>
+</div>
 
 <table class="table">
-    @*<tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PublishDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Source)
-            </th>
-            <th></th>
-        </tr>*@
-
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                <a href="@Html.DisplayFor(modelItem => item.Source)">
-                    @Html.DisplayFor(modelItem => item.Title)
-                </a>
-            </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.PublishDate)
-            </td>*@
-            @*<td>
-                    <a href="@Html.DisplayFor(modelItem => item.Source)">
-                        @Html.DisplayFor(modelItem => item.Source)
-                    </a>
-                </td>*@
-        </tr>
+        @Html.Partial("_SearchResults", item)
     }
-
 </table>
+
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, pageNo => Url.Action("Results",
+    new { pageNo, FilterString = ViewBag.FilterString }))
+
+@*@section Scripts {
+        <div class="pagination-holder clearfix">
+            <div id="compact-pagination" class="compact-theme simple-pagination">
+
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                $('.pagination-holder').pagination({
+                    items: 100,
+                    itemsOnPage: 10,
+                    cssStyle: 'light-theme'
+                });
+            });
+        </script>
+    }*@

@@ -4,52 +4,58 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="OagumDB.ArticleAuthorMetadataNamespace.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="T_ArticleAuthor">
+      <Schema Namespace="OagumDB.PublisherMetadataNS.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'OagumDB.Metadata.dbo.T_Publisher' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="T_Publisher">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ArticleId" Type="int" Nullable="false" />
-          <Property Name="AuthorId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
           <Property Name="InsertDate" Type="datetime" />
-          <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+          <Property Name="CreatedUser" Type="datetime" />
         </EntityType>
-        <EntityContainer Name="OagumDBArticleAuthorMetadataNamespaceStoreContainer">
-          <EntitySet Name="T_ArticleAuthor" EntityType="Self.T_ArticleAuthor" Schema="dbo" store:Type="Tables" />
+        <EntityContainer Name="OagumDBPublisherMetadataNSStoreContainer">
+          <EntitySet Name="T_Publisher" EntityType="Self.T_Publisher" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [T_Publisher].[ID] AS [ID], 
+    [T_Publisher].[Name] AS [Name], 
+    [T_Publisher].[InsertDate] AS [InsertDate], 
+    [T_Publisher].[CreatedUser] AS [CreatedUser]
+    FROM [dbo].[T_Publisher] AS [T_Publisher]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="OagumDB.ArticleAuthorMetadataNamespace" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="T_ArticleAuthor">
+      <Schema Namespace="OagumDB.PublisherMetadataNS" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="T_Publisher">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ArticleId" Type="Int32" Nullable="false" />
-          <Property Name="AuthorId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="InsertDate" Type="DateTime" Precision="3" />
-          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedUser" Type="DateTime" Precision="3" />
         </EntityType>
-        <EntityContainer Name="ArticleAuthorMetadataEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="T_ArticleAuthor" EntityType="Self.T_ArticleAuthor" />
+        <EntityContainer Name="PublisherMetadataEntity" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="T_Publisher" EntityType="Self.T_Publisher" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="OagumDBArticleAuthorMetadataNamespaceStoreContainer" CdmEntityContainer="ArticleAuthorMetadataEntities">
-          <EntitySetMapping Name="T_ArticleAuthor">
-            <EntityTypeMapping TypeName="OagumDB.ArticleAuthorMetadataNamespace.T_ArticleAuthor">
-              <MappingFragment StoreEntitySet="T_ArticleAuthor">
+        <EntityContainerMapping StorageEntityContainer="OagumDBPublisherMetadataNSStoreContainer" CdmEntityContainer="PublisherMetadataEntity">
+          <EntitySetMapping Name="T_Publisher">
+            <EntityTypeMapping TypeName="OagumDB.PublisherMetadataNS.T_Publisher">
+              <MappingFragment StoreEntitySet="T_Publisher">
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="ArticleId" ColumnName="ArticleId" />
-                <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -26,6 +26,9 @@ namespace oagum0._01
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+            // Using a jQuery code snippet for easy pagination of query results
+            //bundles.Add(new StyleBundle("~/Content/simplePagination").Include(
+            //          "~/Scripts/jquery.simplePagination.js"));
         }
     }
 }

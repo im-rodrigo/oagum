@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace oagum0._01
+namespace oagum0._01.Models
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ArticleAuthorMetadataEntities : DbContext
+    public partial class ArticleAuthorRelationshipEntities : DbContext
     {
-        public ArticleAuthorMetadataEntities()
-            : base("name=ArticleAuthorMetadataEntities")
+        public ArticleAuthorRelationshipEntities()
+            : base("name=ArticleAuthorRelationshipEntities")
         {
         }
     
@@ -25,6 +25,8 @@ namespace oagum0._01
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<T_Article> T_Article { get; set; }
         public virtual DbSet<T_ArticleAuthor> T_ArticleAuthor { get; set; }
+        public virtual DbSet<T_Author> T_Author { get; set; }
     }
 }

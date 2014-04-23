@@ -4,8 +4,8 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="6a1232b2659c4b85ac60b1891f06d795" Name="Diagram1">
-        <EntityTypeShape EntityType="OagumDB.ArticleAuthorMetadataNamespace.T_ArticleAuthor" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="073aa51ab2324ecb8c46391c81f35b0a" Name="Diagram1">
+        <EntityTypeShape EntityType="OagumDB.PublisherMetadataNS.T_Publisher" Width="1.5" PointX="2.75" PointY="2.875" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
