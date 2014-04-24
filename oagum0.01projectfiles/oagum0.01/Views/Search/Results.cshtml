@@ -25,6 +25,11 @@
 </table>
 
 <br />
+
+<iframe height="400" width="900" hidden="hidden" src="" id="pdfcontent">
+
+</iframe>
+
 Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
 @Html.PagedListPager(Model, pageNo => Url.Action("Results",
     new { pageNo, FilterString = ViewBag.FilterString }))
@@ -45,3 +50,26 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
             });
         </script>
     }*@
+
+
+
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('a').click(function (e) {
+            e.preventDefault();
+            $('#pdfcontent').attr('src', $(this).attr('href')).show();
+            $('html, body').animate({
+                scrollTop: $("#pdfcontent").offset().top
+            }, 1000);
+        })
+    })
+</script>
+
+
+ 
+
+
