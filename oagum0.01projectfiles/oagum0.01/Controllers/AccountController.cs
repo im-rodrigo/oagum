@@ -10,9 +10,10 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using oagum0._01.Models;
 
+
 namespace oagum0._01.Controllers
 {
-    [Authorize]
+   
     public class AccountController : Controller
     {
         public AccountController()
@@ -39,26 +40,33 @@ namespace oagum0._01.Controllers
         //
         // POST: /Account/Login
         [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        public JsonResult Login(string UserName, string Password)
         {
-            if (ModelState.IsValid)
+            string message = "";
+            try
             {
-                var user = await UserManager.FindAsync(model.UserName, model.Password);
-                if (user != null)
+                using (Models.MembershipEntities1 memberDatabase = new MembershipEntities1())
                 {
-                    await SignInAsync(user, model.RememberMe);
-                    return RedirectToLocal(returnUrl);
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Invalid username or password.");
+                    if (!string.IsNullOrEmpty(UserName) && !string.IsNullOrEmpty(Password))
+                    {
+
+                        Models.User user = memberDatabase.Users.Where(User => User.UserName == UserName && User.Password == Password).SingleOrDefault();
+                        if(user == null)
+                        {
+                            message = "The username or password you entered was invalid";
+                        }
+                    }
+                    else
+                    {
+                        throw new Exception("Username and password must have a value");
+                    }
+
                 }
             }
+            catch (Exception ex) { message = ex.Message; }
 
-            // If we got this far, something failed, redisplay form
-            return View(model);
+
+            return Json(message, JsonRequestBehavior.AllowGet);
         }
 
         //
@@ -72,29 +80,39 @@ namespace oagum0._01.Controllers
         //
         // POST: /Account/Register
         [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public JsonResult RegisterUser(string UserName, string Password)
         {
-            if (ModelState.IsValid)
+            string message = "";
+            try
             {
-                var user = new ApplicationUser() { UserName = model.UserName };
-                var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
+                using (Models.MembershipEntities1 memberDatabase = new MembershipEntities1())
                 {
-                    await SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Index", "Home");
-                }
-                else
-                {
-                    AddErrors(result);
+                    if (!string.IsNullOrEmpty(UserName) && !string.IsNullOrEmpty(Password))
+                    {
+                        Models.User newuser = new Models.User
+                        {
+
+                            UserName = UserName,
+                            Password = Password
+                        };
+                        memberDatabase.Users.Add(newuser);
+                        memberDatabase.SaveChanges();
+                    }
+                    else
+                    {
+                        throw new Exception("Username and password must have a value");
+                    }
+
                 }
             }
+            catch (Exception ex) { message = ex.Message; }
 
-            // If we got this far, something failed, redisplay form
-            return View(model);
-        }
+               
+                return Json(message, JsonRequestBehavior.AllowGet);
+                // If we got this far, something failed, redisplay form
 
+            }
+        
         //
         // POST: /Account/Disassociate
         [HttpPost]
