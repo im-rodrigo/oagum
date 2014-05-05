@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OagumDB.ArticleAuthorRelationshipNamespace.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="T_Article">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="400" />
+    <Property Name="PublishDate" Type="datetime" />
+    <Property Name="Description" Type="text" />
+    <Property Name="Source" Type="nvarchar" MaxLength="400" />
+    <Property Name="InsertDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="T_ArticleAuthor">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ArticleId" Type="int" Nullable="false" />
+    <Property Name="AuthorId" Type="int" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="T_Author">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="InsertDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <Association Name="FK_dbo_T_ArticleAuthor_dbo_T_Article_ArticleId">
+    <End Role="T_Article" Type="Self.T_Article" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="T_ArticleAuthor" Type="Self.T_ArticleAuthor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Article">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="T_ArticleAuthor">
+        <PropertyRef Name="ArticleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_T_ArticleAuthor_dbo_T_Author_AuthorId">
+    <End Role="T_Author" Type="Self.T_Author" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="T_ArticleAuthor" Type="Self.T_ArticleAuthor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Author">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="T_ArticleAuthor">
+        <PropertyRef Name="AuthorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="OagumDBArticleAuthorRelationshipNamespaceStoreContainer">
+    <EntitySet Name="T_Article" EntityType="Self.T_Article" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_ArticleAuthor" EntityType="Self.T_ArticleAuthor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Author" EntityType="Self.T_Author" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_T_ArticleAuthor_dbo_T_Article_ArticleId" Association="Self.FK_dbo_T_ArticleAuthor_dbo_T_Article_ArticleId">
+      <End Role="T_Article" EntitySet="T_Article" />
+      <End Role="T_ArticleAuthor" EntitySet="T_ArticleAuthor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_T_ArticleAuthor_dbo_T_Author_AuthorId" Association="Self.FK_dbo_T_ArticleAuthor_dbo_T_Author_AuthorId">
+      <End Role="T_Author" EntitySet="T_Author" />
+      <End Role="T_ArticleAuthor" EntitySet="T_ArticleAuthor" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

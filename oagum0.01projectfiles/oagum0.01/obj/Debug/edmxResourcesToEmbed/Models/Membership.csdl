@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MembershipModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="MembershipEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Users" EntityType="MembershipModel.User" />
+    <EntitySet Name="UserArticles" EntityType="MembershipModel.UserArticle" />
+    <AssociationSet Name="fk_UserId_ArticleId" Association="MembershipModel.fk_UserId_ArticleId">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserArticle" EntitySet="UserArticles" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="UserArticles" Relationship="MembershipModel.fk_UserId_ArticleId" FromRole="User" ToRole="UserArticle" />
+  </EntityType>
+  <EntityType Name="UserArticle">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="ArticleId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="ArticleId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="MembershipModel.fk_UserId_ArticleId" FromRole="UserArticle" ToRole="User" />
+  </EntityType>
+  <Association Name="fk_UserId_ArticleId">
+    <End Type="MembershipModel.User" Role="User" Multiplicity="1" />
+    <End Type="MembershipModel.UserArticle" Role="UserArticle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserArticle">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

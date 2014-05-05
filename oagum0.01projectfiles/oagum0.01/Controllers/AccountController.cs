@@ -55,6 +55,10 @@ namespace oagum0._01.Controllers
                         {
                             message = "The username or password you entered was invalid";
                         }
+                        else
+                        {
+                            Session["userId"] = user.ID.ToString();
+                        }
                     }
                     else
                     {
@@ -66,6 +70,30 @@ namespace oagum0._01.Controllers
             catch (Exception ex) { message = ex.Message; }
 
 
+            return Json(message, JsonRequestBehavior.AllowGet);
+       
+        }
+
+
+        [HttpPost]
+        public JsonResult AddUserFavorite(string articleID)
+        {
+            int userId = Convert.ToInt32(Session["userId"]);
+            string message = "";
+
+            using (Models.MembershipEntities1 memberDatabase = new MembershipEntities1())
+            {
+                memberDatabase.UserArticles.Add(new UserArticle { ArticleId = Convert.ToInt32(articleID), UserId = userId });
+                try
+                {
+                    memberDatabase.SaveChanges();
+                }
+                catch (Exception)
+                {
+                    message = "Article has already been added to favorites";
+                }
+               
+            }
             return Json(message, JsonRequestBehavior.AllowGet);
         }
 
@@ -80,27 +108,39 @@ namespace oagum0._01.Controllers
         //
         // POST: /Account/Register
         [HttpPost]
-        public JsonResult RegisterUser(string UserName, string Password)
+        public JsonResult RegisterUser(string UserName, string Password, string EmailAddress)
         {
-            string message = "";
+            string message = "";                                                                                                
             try
             {
                 using (Models.MembershipEntities1 memberDatabase = new MembershipEntities1())
                 {
-                    if (!string.IsNullOrEmpty(UserName) && !string.IsNullOrEmpty(Password))
+                    if(!EmailAddress.Contains('@') || (!EmailAddress.Contains(".com")))
+                    {
+                        throw new Exception("Must have valid Email");
+                    }
+                    else if (!string.IsNullOrEmpty(UserName) && !string.IsNullOrEmpty(Password) && !string.IsNullOrEmpty(EmailAddress))
                     {
                         Models.User newuser = new Models.User
                         {
-
+                            Email = EmailAddress,
                             UserName = UserName,
                             Password = Password
                         };
                         memberDatabase.Users.Add(newuser);
-                        memberDatabase.SaveChanges();
+                        try
+                        {
+                            memberDatabase.SaveChanges();
+                        }
+                        catch(Exception ex)
+                        {
+                            message = "User already exists";
+                        }
+                       
                     }
                     else
                     {
-                        throw new Exception("Username and password must have a value");
+                        throw new Exception("Username, password, and email must have a value");
                     }
 
                 }

@@ -59,5 +59,10 @@ namespace oagum0._01.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [DataType(DataType.EmailAddress)]
+        [Display(Name = "EmailAddress")]
+        [Compare("EmailAddress", ErrorMessage = "Invalid Email")]
+        public string EmailAddress { get; set; }
     }
 }

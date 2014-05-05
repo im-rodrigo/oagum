@@ -1,14 +1,21 @@
 ﻿@*@model IEnumerable<oagum0._01.Models.T_Article>*@
 @model PagedList.IPagedList<oagum0._01.Models.T_Article>
 @using PagedList.Mvc;
+
 <link href="~/Content/PagedList.css" rel="stylesheet" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"/>
+<link rel="stylesheet" href="//jqueryui.com/jquery-wp-content/themes/jqueryui.com/style.css"/>
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
 @{
     ViewBag.Title = "Results";
     var searchcount = ViewBag.SearchCount;
 }
-
-<div>
-    @Html.Partial("_Search")
+<div id="accordion">
+    <div>
+        @Html.Partial("_Search")
+    </div>
 </div>
 <div>
     <h2>Results</h2>
@@ -34,39 +41,58 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
 @Html.PagedListPager(Model, pageNo => Url.Action("Results",
     new { pageNo, FilterString = ViewBag.FilterString }))
 
-@*@section Scripts {
-        <div class="pagination-holder clearfix">
-            <div id="compact-pagination" class="compact-theme simple-pagination">
+@*<script>
+    $(function () {
+        $("#accordion").accordion();
+    });
+</script>*@
 
-            </div>
-        </div>
-        <script type="text/javascript">
-            $(function () {
-                $('.pagination-holder').pagination({
-                    items: 100,
-                    itemsOnPage: 10,
-                    cssStyle: 'light-theme'
-                });
-            });
-        </script>
-    }*@
-
-
-
-
-<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 <script type="text/javascript">
+    //$(document).ready(function () {
+    //    $("#accordion").accordion({
+    //        heightStyle: "content"
+    //    });
+    //});
     $(document).ready(function () {
-        $('a').click(function (e) {
+        $('.articleLink').click(function (e) {
             e.preventDefault();
-            $('#pdfcontent').attr('src', $(this).attr('href')).show();
+            $('#pdfcontent').attr('src', $(this).attr('href')).show()
             $('html, body').animate({
                 scrollTop: $("#pdfcontent").offset().top
             }, 1000);
         })
     })
+    function AddUserFavorite(Button,ArticleID)
+    {
+        var jsonString = {
+            "articleID": ArticleID 
+            
+        };
+        $.ajax({
+            type: "POST",
+            url: "/Account/AddUserFavorite",
+            data: JSON.stringify(jsonString),
+            dataType: "json",
+            contentType: "application/json",
+            success: function (returnData) {
+                if (returnData == "") {
+
+                    $(Button).text("Added To Favorites")
+                    
+                }
+                else {
+
+                    $(Button).text(returnData)
+                  
+                }
+
+            },
+            error: function (xhr, textStatus, errorThrown) {
+
+            }
+        });
+    }
+   
 </script>
 
 

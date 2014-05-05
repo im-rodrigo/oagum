@@ -1,0 +1,31 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [dbo].[Email] (User-Defined Data Type)
+       [dbo].[Flag] (User-Defined Data Type)
+       [dbo].[Name] (User-Defined Data Type)
+       [dbo].[Phone] (User-Defined Data Type)
+       [dbo].[User] (Table)
+       [dbo].[UserClaim] (Table)
+       [dbo].[UserClaim].[IX_UserClaim_UserID] (Index)
+       [dbo].[UserLogin] (Table)
+       [dbo].[UserLogin].[IX_UserLogin_UserID] (Index)
+       [dbo].[UserRole] (Table)
+       [dbo].[UserUserRole] (Table)
+       [dbo].[UserUserRole].[IX_UserUserRole_UserID] (Index)
+       [dbo].[UserUserRole].[IX_UserUserRole_RoleID] (Index)
+       [dbo].[FK_UserClaim_User] (Foreign Key)
+       [dbo].[FK_UserLogin_User] (Foreign Key)
+       [dbo].[FK_UserUserRole_User] (Foreign Key)
+       [dbo].[FK_UserUserRole_UserRole] (Foreign Key)
+
+** Supporting actions

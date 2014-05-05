@@ -1,0 +1,109 @@
+﻿@*@model IEnumerable<oagum0._01.Models.T_Article>*@
+@model List<oagum0._01.Models.T_Article>
+@using PagedList.Mvc;
+
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"/>
+<link rel="stylesheet" href="//jqueryui.com/jquery-wp-content/themes/jqueryui.com/style.css"/>
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+@{
+    ViewBag.Title = "Results";
+    var searchcount = ViewBag.SearchCount;
+}
+<div id="accordion">
+    <div>
+        @Html.Partial("_Search")
+    </div>
+</div>
+<div>
+    <h2>Results</h2>
+    <p>
+        @searchcount articles found
+    </p>
+</div>
+
+<table class = "table">
+    @foreach (var item in Model)
+    {
+        <tr>
+    <td>
+        <a  class ="articleFav"id="displayPdf" href=@item.Source>
+            @item.Title
+        </a>
+    </td>
+    <td>
+        @Html.ActionLink("Details", "Details", new { id = @item.ID })
+    </td>
+</tr>
+    }
+</table>
+
+<br />
+
+<iframe height="400" width="900" hidden="hidden" src="" id="pdfcontent">
+
+</iframe>
+
+
+
+
+@*<script>
+    $(function () {
+        $("#accordion").accordion();
+    });
+</script>*@
+
+<script type="text/javascript">
+    //$(document).ready(function () {
+    //    $("#accordion").accordion({
+    //        heightStyle: "content"
+    //    });
+    //});
+    $(document).ready(function () {
+        $('.articleFav').click(function (e) {
+            e.preventDefault();
+            $('#pdfcontent').attr('src', $(this).attr('href')).show()
+            $('html, body').animate({
+                scrollTop: $("#pdfcontent").offset().top
+            }, 1000);
+        })
+    })
+    function AddUserFavorite(Button,ArticleID)
+    {
+        var jsonString = {
+            "articleID": ArticleID 
+            
+        };
+        $.ajax({
+            type: "POST",
+            url: "/Account/AddUserFavorite",
+            data: JSON.stringify(jsonString),
+            dataType: "json",
+            contentType: "application/json",
+            success: function (returnData) {
+                if (returnData == "") {
+
+                    $(Button).text("Added To Favorites")
+                    
+                }
+                else {
+
+                    $(Button).text(returnData)
+                  
+                }
+
+            },
+            error: function (xhr, textStatus, errorThrown) {
+
+            }
+        });
+    }
+   
+</script>
+
+
+ 
+
+

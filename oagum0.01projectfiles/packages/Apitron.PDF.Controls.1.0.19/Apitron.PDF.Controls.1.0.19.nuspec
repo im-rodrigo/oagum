@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Apitron.PDF.Controls</id>
+    <version>1.0.19</version>
+    <title>Apitron.PDF.Controls for .NET</title>
+    <authors>Apitron LTD.</authors>
+    <owners>Apitron LTD.</owners>
+    <projectUrl>http://apitron.com/Product/pdf-controls</projectUrl>
+    <iconUrl>http://apitron.com/Uploads/Logo3.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>We support rendering of the PDF content in our PDF viewer control including:
+- everything that can be rendered using Apitron Rasterizer can be viewed
+- various viewing modes, e.g. continuous, fit to width, fit to page
+- zooming, scrolling, navigation through PDF content
+- integration with rasterizer's navigation services
+- search support
+- hotkeys for navigation
+- complete support for visual studio design time environment
+- free and responsive support and free upgrades</description>
+    <summary>Apitron PDF Controls is a free .NET library that helps users integrate PDF viewing functionality into their Windows Forms applications.</summary>
+    <releaseNotes>This release includes all fixes up to and including version 3.0.19.0 of Apitron.PDF.Rasterizer</releaseNotes>
+    <copyright>©Apitron 2014. All Rights Reserved.</copyright>
+    <language>en-US</language>
+    <tags>Apitron PDF Controls for .NET PDFViewer Viewer WindowsForms show PDF C#</tags>
+  </metadata>
+</package>

@@ -1,0 +1,9 @@
+C:\Users\Shaymas\Documents\oagumRod\oagum0.01projectfiles\User\bin\Debug\Database.dacpac
+C:\Users\Shaymas\Documents\oagumRod\oagum0.01projectfiles\User\bin\Debug\KriaSoft.AspNet.Identity.Database.dll
+C:\Users\Shaymas\Documents\oagumRod\oagum0.01projectfiles\User\bin\Debug\KriaSoft.AspNet.Identity.Database.pdb
+C:\Users\Shaymas\Documents\oagumRod\oagum0.01projectfiles\User\obj\Debug\Model.xml
+C:\Users\Shaymas\Documents\oagumRod\oagum0.01projectfiles\User\obj\Debug\refactor.xml
+C:\Users\Shaymas\Documents\oagumRod\oagum0.01projectfiles\User\obj\Debug\postdeploy.sql
+C:\Users\Shaymas\Documents\oagumRod\oagum0.01projectfiles\User\obj\Debug\predeploy.sql
+C:\Users\Shaymas\Documents\oagumRod\oagum0.01projectfiles\User\obj\Debug\KriaSoft.AspNet.Identity.Database.dll
+C:\Users\Shaymas\Documents\oagumRod\oagum0.01projectfiles\User\obj\Debug\KriaSoft.AspNet.Identity.Database.pdb
