@@ -1,0 +1,10 @@
+C:\Users\Shaymas\Documents\oagumRod\oagum0.01projectfiles\UnitTestProject2\bin\Debug\UnitTestProject2.dll.config
+C:\Users\Shaymas\Documents\oagumRod\oagum0.01projectfiles\UnitTestProject2\bin\Debug\UnitTestProject2.dll
+C:\Users\Shaymas\Documents\oagumRod\oagum0.01projectfiles\UnitTestProject2\bin\Debug\UnitTestProject2.pdb
+C:\Users\Shaymas\Documents\oagumRod\oagum0.01projectfiles\UnitTestProject2\bin\Debug\EntityFramework.dll
+C:\Users\Shaymas\Documents\oagumRod\oagum0.01projectfiles\UnitTestProject2\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Shaymas\Documents\oagumRod\oagum0.01projectfiles\UnitTestProject2\bin\Debug\EntityFramework.xml
+C:\Users\Shaymas\Documents\oagumRod\oagum0.01projectfiles\UnitTestProject2\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Shaymas\Documents\oagumRod\oagum0.01projectfiles\UnitTestProject2\obj\Debug\UnitTestProject2.csprojResolveAssemblyReference.cache
+C:\Users\Shaymas\Documents\oagumRod\oagum0.01projectfiles\UnitTestProject2\obj\Debug\UnitTestProject2.dll
+C:\Users\Shaymas\Documents\oagumRod\oagum0.01projectfiles\UnitTestProject2\obj\Debug\UnitTestProject2.pdb

@@ -164,7 +164,6 @@ C:\Users\Shaymas\Documents\oagumRod\oagum0.01projectfiles\oagum0.01\bin\System.W
 C:\Users\Shaymas\Documents\oagumRod\oagum0.01projectfiles\oagum0.01\bin\System.Web.WebPages.xml
 C:\Users\Shaymas\Documents\oagumRod\oagum0.01projectfiles\oagum0.01\bin\System.Web.WebPages.Deployment.xml
 C:\Users\Shaymas\Documents\oagumRod\oagum0.01projectfiles\oagum0.01\bin\System.Web.WebPages.Razor.xml
-C:\Users\Shaymas\Documents\oagumRod\oagum0.01projectfiles\oagum0.01\bin\Newtonsoft.Json.xml
 C:\Users\Shaymas\Documents\oagumRod\oagum0.01projectfiles\oagum0.01\bin\Antlr3.Runtime.pdb
 C:\Users\Shaymas\Documents\oagumRod\oagum0.01projectfiles\oagum0.01\bin\EntityFramework.xml
 C:\Users\Shaymas\Documents\oagumRod\oagum0.01projectfiles\oagum0.01\bin\EntityFramework.SqlServer.xml
@@ -188,3 +187,12 @@ C:\Users\Shaymas\Documents\oagumRod\oagum0.01projectfiles\oagum0.01\bin\Apitron.
 C:\Users\Shaymas\Documents\oagumRod\oagum0.01projectfiles\oagum0.01\bin\Apitron.PDF.Rasterizer.dll
 C:\Users\Shaymas\Documents\oagumRod\oagum0.01projectfiles\oagum0.01\bin\Apitron.PDF.Controls.xml
 C:\Users\Shaymas\Documents\oagumRod\oagum0.01projectfiles\oagum0.01\bin\Apitron.PDF.Rasterizer.xml
+C:\Users\Shaymas\Documents\oagumRod\oagum0.01projectfiles\oagum0.01\bin\Emgu.CV.dll
+C:\Users\Shaymas\Documents\oagumRod\oagum0.01projectfiles\oagum0.01\bin\Eyes.CodedUI.dll
+C:\Users\Shaymas\Documents\oagumRod\oagum0.01projectfiles\oagum0.01\bin\Eyes.Sdk.DotNet.dll
+C:\Users\Shaymas\Documents\oagumRod\oagum0.01projectfiles\oagum0.01\bin\Eyes.Windows.dll
+C:\Users\Shaymas\Documents\oagumRod\oagum0.01projectfiles\oagum0.01\bin\Ionic.Zip.dll
+C:\Users\Shaymas\Documents\oagumRod\oagum0.01projectfiles\oagum0.01\bin\log4net.dll
+C:\Users\Shaymas\Documents\oagumRod\oagum0.01projectfiles\oagum0.01\bin\ServiceStack.Common.dll
+C:\Users\Shaymas\Documents\oagumRod\oagum0.01projectfiles\oagum0.01\bin\ServiceStack.Interfaces.dll
+C:\Users\Shaymas\Documents\oagumRod\oagum0.01projectfiles\oagum0.01\bin\ServiceStack.Text.dll

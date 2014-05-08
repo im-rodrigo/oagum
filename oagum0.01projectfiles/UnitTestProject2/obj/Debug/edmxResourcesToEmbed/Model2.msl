@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OagumDBMetadataModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="T_Article">
+      <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_Article">
+        <MappingFragment StoreEntitySet="T_Article">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_ArticleAuthor">
+      <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_ArticleAuthor">
+        <MappingFragment StoreEntitySet="T_ArticleAuthor">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ArticleId" ColumnName="ArticleId" />
+          <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_ArticleFullMeDa">
+      <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_ArticleFullMeDa">
+        <MappingFragment StoreEntitySet="T_ArticleFullMeDa">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Creator" ColumnName="Creator" />
+          <ScalarProperty Name="PubDate" ColumnName="PubDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Publisher" ColumnName="Publisher" />
+          <ScalarProperty Name="Identifier" ColumnName="Identifier" />
+          <ScalarProperty Name="PubLanguage" ColumnName="PubLanguage" />
+          <ScalarProperty Name="Relation" ColumnName="Relation" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_ArticleSmallMeDa">
+      <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_ArticleSmallMeDa">
+        <MappingFragment StoreEntitySet="T_ArticleSmallMeDa">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="PubDate" ColumnName="PubDate" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_ArticleSmallMeDa_02">
+      <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_ArticleSmallMeDa_02">
+        <MappingFragment StoreEntitySet="T_ArticleSmallMeDa_02">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="KeyTitle" ColumnName="KeyTitle" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="PubDate" ColumnName="PubDate" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_ArticleVeryFullMeDa">
+      <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_ArticleVeryFullMeDa">
+        <MappingFragment StoreEntitySet="T_ArticleVeryFullMeDa">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="aSSN" ColumnName="aSSN" />
+          <ScalarProperty Name="bSSN" ColumnName="bSSN" />
+          <ScalarProperty Name="Creator" ColumnName="Creator" />
+          <ScalarProperty Name="ExtraId1" ColumnName="ExtraId1" />
+          <ScalarProperty Name="ExtraId2" ColumnName="ExtraId2" />
+          <ScalarProperty Name="PubDate" ColumnName="PubDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Publisher" ColumnName="Publisher" />
+          <ScalarProperty Name="PubLanguage" ColumnName="PubLanguage" />
+          <ScalarProperty Name="Relation" ColumnName="Relation" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_ArticleVeryFullMeDa_02">
+      <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_ArticleVeryFullMeDa_02">
+        <MappingFragment StoreEntitySet="T_ArticleVeryFullMeDa_02">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="aSSN" ColumnName="aSSN" />
+          <ScalarProperty Name="bSSN" ColumnName="bSSN" />
+          <ScalarProperty Name="Creator" ColumnName="Creator" />
+          <ScalarProperty Name="ExtraId1" ColumnName="ExtraId1" />
+          <ScalarProperty Name="ExtraId2" ColumnName="ExtraId2" />
+          <ScalarProperty Name="PubDate" ColumnName="PubDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Publisher" ColumnName="Publisher" />
+          <ScalarProperty Name="PubLanguage" ColumnName="PubLanguage" />
+          <ScalarProperty Name="Relation" ColumnName="Relation" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Author">
+      <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_Author">
+        <MappingFragment StoreEntitySet="T_Author">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_AuthorSmallestMeDa">
+      <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_AuthorSmallestMeDa">
+        <MappingFragment StoreEntitySet="T_AuthorSmallestMeDa">
+          <ScalarProperty Name="Author" ColumnName="Author" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_AuthorSmallMeDa">
+      <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_AuthorSmallMeDa">
+        <MappingFragment StoreEntitySet="T_AuthorSmallMeDa">
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="PubDate" ColumnName="PubDate" />
+          <ScalarProperty Name="Author" ColumnName="Author" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_AuthorSmallMeDa_02">
+      <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_AuthorSmallMeDa_02">
+        <MappingFragment StoreEntitySet="T_AuthorSmallMeDa_02">
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="PubDate" ColumnName="PubDate" />
+          <ScalarProperty Name="Author" ColumnName="Author" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_IOP_4162014_DATA">
+      <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_IOP_4162014_DATA">
+        <MappingFragment StoreEntitySet="T_IOP_4162014_DATA">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Publisher" ColumnName="Publisher" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_IOP_4162014_DATA_02">
+      <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_IOP_4162014_DATA_02">
+        <MappingFragment StoreEntitySet="T_IOP_4162014_DATA_02">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Publisher" ColumnName="Publisher" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_PublisherSmallMeDa">
+      <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_PublisherSmallMeDa">
+        <MappingFragment StoreEntitySet="T_PublisherSmallMeDa">
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="PubDate" ColumnName="PubDate" />
+          <ScalarProperty Name="Publisher" ColumnName="Publisher" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_SubjectSmallMeDa">
+      <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_SubjectSmallMeDa">
+        <MappingFragment StoreEntitySet="T_SubjectSmallMeDa">
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="PubDate" ColumnName="PubDate" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_SubjectSmallMeDa_02">
+      <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_SubjectSmallMeDa_02">
+        <MappingFragment StoreEntitySet="T_SubjectSmallMeDa_02">
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="PubDate" ColumnName="PubDate" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_ArticleExtraId">
+      <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_ArticleExtraId">
+        <MappingFragment StoreEntitySet="T_ArticleExtraId">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ExtraId" ColumnName="ExtraId" />
+          <ScalarProperty Name="Flag" ColumnName="Flag" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_ArticleSSN">
+      <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_ArticleSSN">
+        <MappingFragment StoreEntitySet="T_ArticleSSN">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ArticleId" ColumnName="ArticleId" />
+          <ScalarProperty Name="SSN" ColumnName="SSN" />
+          <ScalarProperty Name="Flag" ColumnName="Flag" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Language">
+      <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_Language">
+        <MappingFragment StoreEntitySet="T_Language">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_MiddleMan02">
+      <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_MiddleMan02">
+        <MappingFragment StoreEntitySet="T_MiddleMan02">
+          <ScalarProperty Name="n" ColumnName="n" />
+          <ScalarProperty Name="i" ColumnName="i" />
+          <ScalarProperty Name="c" ColumnName="c" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Publisher">
+      <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_Publisher">
+        <MappingFragment StoreEntitySet="T_Publisher">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Subject">
+      <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_Subject">
+        <MappingFragment StoreEntitySet="T_Subject">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Type">
+      <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_Type">
+        <MappingFragment StoreEntitySet="T_Type">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

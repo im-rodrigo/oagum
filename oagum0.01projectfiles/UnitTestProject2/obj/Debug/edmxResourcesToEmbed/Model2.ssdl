@@ -1,0 +1,422 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OagumDB.MetadataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="T_Article">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="400" />
+    <Property Name="PublishDate" Type="datetime" />
+    <Property Name="Description" Type="text" />
+    <Property Name="Source" Type="nvarchar" MaxLength="400" />
+    <Property Name="InsertDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="T_ArticleAuthor">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ArticleId" Type="int" Nullable="false" />
+    <Property Name="AuthorId" Type="int" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'OagumDB.Metadata.dbo.T_ArticleExtraId' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="T_ArticleExtraId">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExtraId" Type="nvarchar" MaxLength="50" />
+    <Property Name="Flag" Type="nvarchar" MaxLength="1" />
+    <Property Name="InsertDate" Type="datetime" />
+    <Property Name="CreatedUser" Type="datetime" />
+  </EntityType>
+  <EntityType Name="T_ArticleFullMeDa">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Creator" Type="nvarchar" MaxLength="50" />
+    <Property Name="PubDate" Type="datetime" />
+    <Property Name="Description" Type="text" />
+    <Property Name="Publisher" Type="nvarchar" MaxLength="100" />
+    <Property Name="Identifier" Type="nvarchar" MaxLength="400" />
+    <Property Name="PubLanguage" Type="nvarchar" MaxLength="100" />
+    <Property Name="Relation" Type="nvarchar" MaxLength="200" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="510" />
+    <Property Name="Title" Type="nvarchar" MaxLength="200" />
+    <Property Name="Type" Type="nvarchar" MaxLength="100" />
+    <Property Name="EntryDate" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'OagumDB.Metadata.dbo.T_ArticleLanguage' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="T_ArticleLanguage">
+          <Property Name="ArticleId" Type="int" />
+          <Property Name="LanguageId" Type="int" />
+          <Property Name="InsertDate" Type="datetime" />
+          <Property Name="CreatedUser" Type="datetime" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'OagumDB.Metadata.dbo.T_ArticlePublisher' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="T_ArticlePublisher">
+          <Property Name="ArticleId" Type="int" />
+          <Property Name="PublisherId" Type="int" />
+          <Property Name="InsertDate" Type="datetime" />
+          <Property Name="CreatedUser" Type="datetime" />
+        </EntityType>-->
+  <EntityType Name="T_ArticleSmallMeDa">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="400" />
+    <Property Name="PubDate" Type="datetime" />
+    <Property Name="Link" Type="nvarchar" MaxLength="400" />
+  </EntityType>
+  <EntityType Name="T_ArticleSmallMeDa_02">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KeyTitle" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="400" />
+    <Property Name="PubDate" Type="datetime" />
+    <Property Name="Link" Type="nvarchar" MaxLength="400" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'OagumDB.Metadata.dbo.T_ArticleSSN' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="T_ArticleSSN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ArticleId" Type="int" />
+    <Property Name="SSN" Type="nvarchar" MaxLength="50" />
+    <Property Name="Flag" Type="nvarchar" MaxLength="1" />
+    <Property Name="InsertDate" Type="datetime" />
+    <Property Name="CreatedUser" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'OagumDB.Metadata.dbo.T_ArticleSubject' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="T_ArticleSubject">
+          <Property Name="ArticleId" Type="int" />
+          <Property Name="SubjectId" Type="int" />
+          <Property Name="InsertDate" Type="datetime" />
+          <Property Name="CreatedUser" Type="datetime" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'OagumDB.Metadata.dbo.T_ArticleType' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="T_ArticleType">
+          <Property Name="ArticleId" Type="int" />
+          <Property Name="TypeId" Type="int" />
+          <Property Name="InsertDate" Type="datetime" />
+          <Property Name="CreatedUser" Type="datetime" />
+        </EntityType>-->
+  <EntityType Name="T_ArticleVeryFullMeDa">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="aSSN" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="bSSN" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Creator" Type="nvarchar" MaxLength="400" Nullable="false" />
+    <Property Name="ExtraId1" Type="nvarchar" MaxLength="200" />
+    <Property Name="ExtraId2" Type="nvarchar" MaxLength="200" />
+    <Property Name="PubDate" Type="datetime" />
+    <Property Name="Description" Type="text" />
+    <Property Name="Publisher" Type="nvarchar" MaxLength="100" />
+    <Property Name="PubLanguage" Type="nvarchar" MaxLength="100" />
+    <Property Name="Relation" Type="nvarchar" MaxLength="400" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Title" Type="nvarchar" MaxLength="400" />
+    <Property Name="Type" Type="nvarchar" MaxLength="100" />
+    <Property Name="EntryDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="T_ArticleVeryFullMeDa_02">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="aSSN" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="bSSN" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Creator" Type="nvarchar" MaxLength="400" Nullable="false" />
+    <Property Name="ExtraId1" Type="nvarchar" MaxLength="200" />
+    <Property Name="ExtraId2" Type="nvarchar" MaxLength="200" />
+    <Property Name="PubDate" Type="datetime" />
+    <Property Name="Description" Type="text" />
+    <Property Name="Publisher" Type="nvarchar" MaxLength="100" />
+    <Property Name="PubLanguage" Type="nvarchar" MaxLength="100" />
+    <Property Name="Relation" Type="nvarchar" MaxLength="400" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Title" Type="nvarchar" MaxLength="400" />
+    <Property Name="Type" Type="nvarchar" MaxLength="100" />
+    <Property Name="EntryDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Author">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="InsertDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="T_AuthorSmallestMeDa">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Author" Type="nvarchar" MaxLength="50" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_AuthorSmallMeDa">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Title" Type="nvarchar" MaxLength="400" />
+    <Property Name="PubDate" Type="datetime" />
+    <Property Name="Author" Type="nvarchar" MaxLength="50" />
+    <Property Name="Link" Type="nvarchar" MaxLength="400" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_AuthorSmallMeDa_02">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Title" Type="nvarchar" MaxLength="400" />
+    <Property Name="PubDate" Type="datetime" />
+    <Property Name="Author" Type="nvarchar" MaxLength="50" />
+    <Property Name="Link" Type="nvarchar" MaxLength="400" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_IOP_4162014_DATA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Publisher" Type="nvarchar" MaxLength="100" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Title" Type="nvarchar" MaxLength="400" />
+    <Property Name="Source" Type="nvarchar" MaxLength="400" />
+    <Property Name="InsertDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="T_IOP_4162014_DATA_02">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Publisher" Type="nvarchar" MaxLength="100" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Title" Type="nvarchar" MaxLength="400" />
+    <Property Name="Source" Type="nvarchar" MaxLength="400" />
+    <Property Name="InsertDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'OagumDB.Metadata.dbo.T_Language' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="T_Language">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="InsertDate" Type="datetime" />
+    <Property Name="CreatedUser" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'OagumDB.Metadata.dbo.T_MiddleMan01' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="T_MiddleMan01">
+          <Property Name="n" Type="nvarchar" MaxLength="50" />
+          <Property Name="i" Type="datetime" />
+          <Property Name="c" Type="nvarchar" MaxLength="20" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'OagumDB.Metadata.dbo.T_MiddleMan02' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="T_MiddleMan02">
+    <Key>
+      <PropertyRef Name="i" />
+      <PropertyRef Name="c" />
+    </Key>
+    <Property Name="n" Type="nvarchar" MaxLength="50" />
+    <Property Name="i" Type="datetime" Nullable="false" />
+    <Property Name="c" Type="varchar" MaxLength="7" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'OagumDB.Metadata.dbo.T_Publisher' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="T_Publisher">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertDate" Type="datetime" />
+    <Property Name="CreatedUser" Type="datetime" />
+  </EntityType>
+  <EntityType Name="T_PublisherSmallMeDa">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Title" Type="nvarchar" MaxLength="400" />
+    <Property Name="PubDate" Type="datetime" />
+    <Property Name="Publisher" Type="nvarchar" MaxLength="100" />
+    <Property Name="Link" Type="nvarchar" MaxLength="400" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'OagumDB.Metadata.dbo.T_Subject' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="T_Subject">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="InsertDate" Type="datetime" />
+    <Property Name="CreatedUser" Type="datetime" />
+  </EntityType>
+  <EntityType Name="T_SubjectSmallMeDa">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Title" Type="nvarchar" MaxLength="400" />
+    <Property Name="PubDate" Type="datetime" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="200" />
+    <Property Name="Link" Type="nvarchar" MaxLength="400" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_SubjectSmallMeDa_02">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Title" Type="nvarchar" MaxLength="400" />
+    <Property Name="PubDate" Type="datetime" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="100" />
+    <Property Name="Link" Type="nvarchar" MaxLength="400" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'OagumDB.Metadata.dbo.T_Type' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="T_Type">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="InsertDate" Type="datetime" />
+    <Property Name="CreatedUser" Type="datetime" />
+  </EntityType>
+  <Association Name="FK_dbo_T_ArticleAuthor_dbo_T_Article_ArticleId">
+    <End Role="T_Article" Type="Self.T_Article" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="T_ArticleAuthor" Type="Self.T_ArticleAuthor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Article">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="T_ArticleAuthor">
+        <PropertyRef Name="ArticleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_T_ArticleAuthor_dbo_T_Author_AuthorId">
+    <End Role="T_Author" Type="Self.T_Author" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="T_ArticleAuthor" Type="Self.T_ArticleAuthor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Author">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="T_ArticleAuthor">
+        <PropertyRef Name="AuthorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="OagumDBMetadataModelStoreContainer">
+    <EntitySet Name="T_Article" EntityType="Self.T_Article" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_ArticleAuthor" EntityType="Self.T_ArticleAuthor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_ArticleFullMeDa" EntityType="Self.T_ArticleFullMeDa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_ArticleSmallMeDa" EntityType="Self.T_ArticleSmallMeDa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_ArticleSmallMeDa_02" EntityType="Self.T_ArticleSmallMeDa_02" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_ArticleVeryFullMeDa" EntityType="Self.T_ArticleVeryFullMeDa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_ArticleVeryFullMeDa_02" EntityType="Self.T_ArticleVeryFullMeDa_02" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Author" EntityType="Self.T_Author" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_AuthorSmallestMeDa" EntityType="Self.T_AuthorSmallestMeDa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_AuthorSmallMeDa" EntityType="Self.T_AuthorSmallMeDa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_AuthorSmallMeDa_02" EntityType="Self.T_AuthorSmallMeDa_02" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_IOP_4162014_DATA" EntityType="Self.T_IOP_4162014_DATA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_IOP_4162014_DATA_02" EntityType="Self.T_IOP_4162014_DATA_02" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_PublisherSmallMeDa" EntityType="Self.T_PublisherSmallMeDa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_SubjectSmallMeDa" EntityType="Self.T_SubjectSmallMeDa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_SubjectSmallMeDa_02" EntityType="Self.T_SubjectSmallMeDa_02" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_ArticleExtraId" EntityType="Self.T_ArticleExtraId" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [T_ArticleExtraId].[ID] AS [ID], 
+    [T_ArticleExtraId].[ExtraId] AS [ExtraId], 
+    [T_ArticleExtraId].[Flag] AS [Flag], 
+    [T_ArticleExtraId].[InsertDate] AS [InsertDate], 
+    [T_ArticleExtraId].[CreatedUser] AS [CreatedUser]
+    FROM [dbo].[T_ArticleExtraId] AS [T_ArticleExtraId]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="T_ArticleSSN" EntityType="Self.T_ArticleSSN" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [T_ArticleSSN].[ID] AS [ID], 
+    [T_ArticleSSN].[ArticleId] AS [ArticleId], 
+    [T_ArticleSSN].[SSN] AS [SSN], 
+    [T_ArticleSSN].[Flag] AS [Flag], 
+    [T_ArticleSSN].[InsertDate] AS [InsertDate], 
+    [T_ArticleSSN].[CreatedUser] AS [CreatedUser]
+    FROM [dbo].[T_ArticleSSN] AS [T_ArticleSSN]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="T_Language" EntityType="Self.T_Language" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [T_Language].[ID] AS [ID], 
+    [T_Language].[Name] AS [Name], 
+    [T_Language].[InsertDate] AS [InsertDate], 
+    [T_Language].[CreatedUser] AS [CreatedUser]
+    FROM [dbo].[T_Language] AS [T_Language]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="T_MiddleMan02" EntityType="Self.T_MiddleMan02" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [T_MiddleMan02].[n] AS [n], 
+    [T_MiddleMan02].[i] AS [i], 
+    [T_MiddleMan02].[c] AS [c]
+    FROM [dbo].[T_MiddleMan02] AS [T_MiddleMan02]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="T_Publisher" EntityType="Self.T_Publisher" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [T_Publisher].[ID] AS [ID], 
+    [T_Publisher].[Name] AS [Name], 
+    [T_Publisher].[InsertDate] AS [InsertDate], 
+    [T_Publisher].[CreatedUser] AS [CreatedUser]
+    FROM [dbo].[T_Publisher] AS [T_Publisher]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="T_Subject" EntityType="Self.T_Subject" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [T_Subject].[ID] AS [ID], 
+    [T_Subject].[Name] AS [Name], 
+    [T_Subject].[InsertDate] AS [InsertDate], 
+    [T_Subject].[CreatedUser] AS [CreatedUser]
+    FROM [dbo].[T_Subject] AS [T_Subject]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="T_Type" EntityType="Self.T_Type" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [T_Type].[ID] AS [ID], 
+    [T_Type].[Name] AS [Name], 
+    [T_Type].[InsertDate] AS [InsertDate], 
+    [T_Type].[CreatedUser] AS [CreatedUser]
+    FROM [dbo].[T_Type] AS [T_Type]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_dbo_T_ArticleAuthor_dbo_T_Article_ArticleId" Association="Self.FK_dbo_T_ArticleAuthor_dbo_T_Article_ArticleId">
+      <End Role="T_Article" EntitySet="T_Article" />
+      <End Role="T_ArticleAuthor" EntitySet="T_ArticleAuthor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_T_ArticleAuthor_dbo_T_Author_AuthorId" Association="Self.FK_dbo_T_ArticleAuthor_dbo_T_Author_AuthorId">
+      <End Role="T_Author" EntitySet="T_Author" />
+      <End Role="T_ArticleAuthor" EntitySet="T_ArticleAuthor" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

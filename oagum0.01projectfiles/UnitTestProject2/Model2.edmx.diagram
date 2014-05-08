@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="297c5916c9574ab08137807e85eba9a5" Name="Diagram1" ZoomLevel="31">
+        <EntityTypeShape EntityType="OagumDB.MetadataModel.T_Article" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="OagumDB.MetadataModel.T_ArticleAuthor" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="OagumDB.MetadataModel.T_ArticleFullMeDa" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OagumDB.MetadataModel.T_ArticleSmallMeDa" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OagumDB.MetadataModel.T_ArticleSmallMeDa_02" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OagumDB.MetadataModel.T_ArticleVeryFullMeDa" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OagumDB.MetadataModel.T_ArticleVeryFullMeDa_02" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OagumDB.MetadataModel.T_Author" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OagumDB.MetadataModel.T_AuthorSmallestMeDa" Width="1.5" PointX="4.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OagumDB.MetadataModel.T_AuthorSmallMeDa" Width="1.5" PointX="8.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OagumDB.MetadataModel.T_AuthorSmallMeDa_02" Width="1.5" PointX="6.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OagumDB.MetadataModel.T_IOP_4162014_DATA" Width="1.5" PointX="8.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OagumDB.MetadataModel.T_IOP_4162014_DATA_02" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OagumDB.MetadataModel.T_PublisherSmallMeDa" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OagumDB.MetadataModel.T_SubjectSmallMeDa" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OagumDB.MetadataModel.T_SubjectSmallMeDa_02" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OagumDB.MetadataModel.T_ArticleExtraId" Width="1.5" PointX="10.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OagumDB.MetadataModel.T_ArticleSSN" Width="1.5" PointX="2.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OagumDB.MetadataModel.T_Language" Width="1.5" PointX="4.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OagumDB.MetadataModel.T_MiddleMan02" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OagumDB.MetadataModel.T_Publisher" Width="1.5" PointX="12.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OagumDB.MetadataModel.T_Subject" Width="1.5" PointX="12.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OagumDB.MetadataModel.T_Type" Width="1.5" PointX="6.75" PointY="12.75" IsExpanded="true" />
+        <AssociationConnector Association="OagumDB.MetadataModel.FK_dbo_T_ArticleAuthor_dbo_T_Article_ArticleId" ManuallyRouted="false" />
+        <AssociationConnector Association="OagumDB.MetadataModel.FK_dbo_T_ArticleAuthor_dbo_T_Author_AuthorId" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

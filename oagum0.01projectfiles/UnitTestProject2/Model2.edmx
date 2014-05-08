@@ -1,0 +1,1056 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="OagumDB.MetadataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="T_Article">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="400" />
+          <Property Name="PublishDate" Type="datetime" />
+          <Property Name="Description" Type="text" />
+          <Property Name="Source" Type="nvarchar" MaxLength="400" />
+          <Property Name="InsertDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="T_ArticleAuthor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ArticleId" Type="int" Nullable="false" />
+          <Property Name="AuthorId" Type="int" Nullable="false" />
+          <Property Name="InsertDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'OagumDB.Metadata.dbo.T_ArticleExtraId' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="T_ArticleExtraId">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ExtraId" Type="nvarchar" MaxLength="50" />
+          <Property Name="Flag" Type="nvarchar" MaxLength="1" />
+          <Property Name="InsertDate" Type="datetime" />
+          <Property Name="CreatedUser" Type="datetime" />
+        </EntityType>
+        <EntityType Name="T_ArticleFullMeDa">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Creator" Type="nvarchar" MaxLength="50" />
+          <Property Name="PubDate" Type="datetime" />
+          <Property Name="Description" Type="text" />
+          <Property Name="Publisher" Type="nvarchar" MaxLength="100" />
+          <Property Name="Identifier" Type="nvarchar" MaxLength="400" />
+          <Property Name="PubLanguage" Type="nvarchar" MaxLength="100" />
+          <Property Name="Relation" Type="nvarchar" MaxLength="200" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="510" />
+          <Property Name="Title" Type="nvarchar" MaxLength="200" />
+          <Property Name="Type" Type="nvarchar" MaxLength="100" />
+          <Property Name="EntryDate" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'OagumDB.Metadata.dbo.T_ArticleLanguage' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="T_ArticleLanguage">
+          <Property Name="ArticleId" Type="int" />
+          <Property Name="LanguageId" Type="int" />
+          <Property Name="InsertDate" Type="datetime" />
+          <Property Name="CreatedUser" Type="datetime" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'OagumDB.Metadata.dbo.T_ArticlePublisher' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="T_ArticlePublisher">
+          <Property Name="ArticleId" Type="int" />
+          <Property Name="PublisherId" Type="int" />
+          <Property Name="InsertDate" Type="datetime" />
+          <Property Name="CreatedUser" Type="datetime" />
+        </EntityType>-->
+        <EntityType Name="T_ArticleSmallMeDa">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="400" />
+          <Property Name="PubDate" Type="datetime" />
+          <Property Name="Link" Type="nvarchar" MaxLength="400" />
+        </EntityType>
+        <EntityType Name="T_ArticleSmallMeDa_02">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KeyTitle" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="400" />
+          <Property Name="PubDate" Type="datetime" />
+          <Property Name="Link" Type="nvarchar" MaxLength="400" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'OagumDB.Metadata.dbo.T_ArticleSSN' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="T_ArticleSSN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ArticleId" Type="int" />
+          <Property Name="SSN" Type="nvarchar" MaxLength="50" />
+          <Property Name="Flag" Type="nvarchar" MaxLength="1" />
+          <Property Name="InsertDate" Type="datetime" />
+          <Property Name="CreatedUser" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'OagumDB.Metadata.dbo.T_ArticleSubject' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="T_ArticleSubject">
+          <Property Name="ArticleId" Type="int" />
+          <Property Name="SubjectId" Type="int" />
+          <Property Name="InsertDate" Type="datetime" />
+          <Property Name="CreatedUser" Type="datetime" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'OagumDB.Metadata.dbo.T_ArticleType' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="T_ArticleType">
+          <Property Name="ArticleId" Type="int" />
+          <Property Name="TypeId" Type="int" />
+          <Property Name="InsertDate" Type="datetime" />
+          <Property Name="CreatedUser" Type="datetime" />
+        </EntityType>-->
+        <EntityType Name="T_ArticleVeryFullMeDa">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="aSSN" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="bSSN" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Creator" Type="nvarchar" MaxLength="400" Nullable="false" />
+          <Property Name="ExtraId1" Type="nvarchar" MaxLength="200" />
+          <Property Name="ExtraId2" Type="nvarchar" MaxLength="200" />
+          <Property Name="PubDate" Type="datetime" />
+          <Property Name="Description" Type="text" />
+          <Property Name="Publisher" Type="nvarchar" MaxLength="100" />
+          <Property Name="PubLanguage" Type="nvarchar" MaxLength="100" />
+          <Property Name="Relation" Type="nvarchar" MaxLength="400" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Title" Type="nvarchar" MaxLength="400" />
+          <Property Name="Type" Type="nvarchar" MaxLength="100" />
+          <Property Name="EntryDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="T_ArticleVeryFullMeDa_02">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="aSSN" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="bSSN" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Creator" Type="nvarchar" MaxLength="400" Nullable="false" />
+          <Property Name="ExtraId1" Type="nvarchar" MaxLength="200" />
+          <Property Name="ExtraId2" Type="nvarchar" MaxLength="200" />
+          <Property Name="PubDate" Type="datetime" />
+          <Property Name="Description" Type="text" />
+          <Property Name="Publisher" Type="nvarchar" MaxLength="100" />
+          <Property Name="PubLanguage" Type="nvarchar" MaxLength="100" />
+          <Property Name="Relation" Type="nvarchar" MaxLength="400" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Title" Type="nvarchar" MaxLength="400" />
+          <Property Name="Type" Type="nvarchar" MaxLength="100" />
+          <Property Name="EntryDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Author">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="InsertDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="T_AuthorSmallestMeDa">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Author" Type="nvarchar" MaxLength="50" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_AuthorSmallMeDa">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Title" Type="nvarchar" MaxLength="400" />
+          <Property Name="PubDate" Type="datetime" />
+          <Property Name="Author" Type="nvarchar" MaxLength="50" />
+          <Property Name="Link" Type="nvarchar" MaxLength="400" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_AuthorSmallMeDa_02">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Title" Type="nvarchar" MaxLength="400" />
+          <Property Name="PubDate" Type="datetime" />
+          <Property Name="Author" Type="nvarchar" MaxLength="50" />
+          <Property Name="Link" Type="nvarchar" MaxLength="400" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_IOP_4162014_DATA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Publisher" Type="nvarchar" MaxLength="100" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" MaxLength="400" />
+          <Property Name="Source" Type="nvarchar" MaxLength="400" />
+          <Property Name="InsertDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="T_IOP_4162014_DATA_02">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Publisher" Type="nvarchar" MaxLength="100" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" MaxLength="400" />
+          <Property Name="Source" Type="nvarchar" MaxLength="400" />
+          <Property Name="InsertDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'OagumDB.Metadata.dbo.T_Language' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="T_Language">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="InsertDate" Type="datetime" />
+          <Property Name="CreatedUser" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'OagumDB.Metadata.dbo.T_MiddleMan01' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="T_MiddleMan01">
+          <Property Name="n" Type="nvarchar" MaxLength="50" />
+          <Property Name="i" Type="datetime" />
+          <Property Name="c" Type="nvarchar" MaxLength="20" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'OagumDB.Metadata.dbo.T_MiddleMan02' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="T_MiddleMan02">
+          <Key>
+            <PropertyRef Name="i" />
+            <PropertyRef Name="c" />
+          </Key>
+          <Property Name="n" Type="nvarchar" MaxLength="50" />
+          <Property Name="i" Type="datetime" Nullable="false" />
+          <Property Name="c" Type="varchar" MaxLength="7" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'OagumDB.Metadata.dbo.T_Publisher' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="T_Publisher">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="InsertDate" Type="datetime" />
+          <Property Name="CreatedUser" Type="datetime" />
+        </EntityType>
+        <EntityType Name="T_PublisherSmallMeDa">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Title" Type="nvarchar" MaxLength="400" />
+          <Property Name="PubDate" Type="datetime" />
+          <Property Name="Publisher" Type="nvarchar" MaxLength="100" />
+          <Property Name="Link" Type="nvarchar" MaxLength="400" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'OagumDB.Metadata.dbo.T_Subject' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="T_Subject">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="InsertDate" Type="datetime" />
+          <Property Name="CreatedUser" Type="datetime" />
+        </EntityType>
+        <EntityType Name="T_SubjectSmallMeDa">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Title" Type="nvarchar" MaxLength="400" />
+          <Property Name="PubDate" Type="datetime" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="200" />
+          <Property Name="Link" Type="nvarchar" MaxLength="400" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_SubjectSmallMeDa_02">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Title" Type="nvarchar" MaxLength="400" />
+          <Property Name="PubDate" Type="datetime" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="100" />
+          <Property Name="Link" Type="nvarchar" MaxLength="400" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'OagumDB.Metadata.dbo.T_Type' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="T_Type">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="InsertDate" Type="datetime" />
+          <Property Name="CreatedUser" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_dbo_T_ArticleAuthor_dbo_T_Article_ArticleId">
+          <End Role="T_Article" Type="Self.T_Article" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="T_ArticleAuthor" Type="Self.T_ArticleAuthor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Article">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_ArticleAuthor">
+              <PropertyRef Name="ArticleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_T_ArticleAuthor_dbo_T_Author_AuthorId">
+          <End Role="T_Author" Type="Self.T_Author" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="T_ArticleAuthor" Type="Self.T_ArticleAuthor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Author">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_ArticleAuthor">
+              <PropertyRef Name="AuthorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OagumDBMetadataModelStoreContainer">
+          <EntitySet Name="T_Article" EntityType="Self.T_Article" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_ArticleAuthor" EntityType="Self.T_ArticleAuthor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_ArticleFullMeDa" EntityType="Self.T_ArticleFullMeDa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_ArticleSmallMeDa" EntityType="Self.T_ArticleSmallMeDa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_ArticleSmallMeDa_02" EntityType="Self.T_ArticleSmallMeDa_02" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_ArticleVeryFullMeDa" EntityType="Self.T_ArticleVeryFullMeDa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_ArticleVeryFullMeDa_02" EntityType="Self.T_ArticleVeryFullMeDa_02" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Author" EntityType="Self.T_Author" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_AuthorSmallestMeDa" EntityType="Self.T_AuthorSmallestMeDa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_AuthorSmallMeDa" EntityType="Self.T_AuthorSmallMeDa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_AuthorSmallMeDa_02" EntityType="Self.T_AuthorSmallMeDa_02" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_IOP_4162014_DATA" EntityType="Self.T_IOP_4162014_DATA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_IOP_4162014_DATA_02" EntityType="Self.T_IOP_4162014_DATA_02" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_PublisherSmallMeDa" EntityType="Self.T_PublisherSmallMeDa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_SubjectSmallMeDa" EntityType="Self.T_SubjectSmallMeDa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_SubjectSmallMeDa_02" EntityType="Self.T_SubjectSmallMeDa_02" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_ArticleExtraId" EntityType="Self.T_ArticleExtraId" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [T_ArticleExtraId].[ID] AS [ID], 
+    [T_ArticleExtraId].[ExtraId] AS [ExtraId], 
+    [T_ArticleExtraId].[Flag] AS [Flag], 
+    [T_ArticleExtraId].[InsertDate] AS [InsertDate], 
+    [T_ArticleExtraId].[CreatedUser] AS [CreatedUser]
+    FROM [dbo].[T_ArticleExtraId] AS [T_ArticleExtraId]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="T_ArticleSSN" EntityType="Self.T_ArticleSSN" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [T_ArticleSSN].[ID] AS [ID], 
+    [T_ArticleSSN].[ArticleId] AS [ArticleId], 
+    [T_ArticleSSN].[SSN] AS [SSN], 
+    [T_ArticleSSN].[Flag] AS [Flag], 
+    [T_ArticleSSN].[InsertDate] AS [InsertDate], 
+    [T_ArticleSSN].[CreatedUser] AS [CreatedUser]
+    FROM [dbo].[T_ArticleSSN] AS [T_ArticleSSN]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="T_Language" EntityType="Self.T_Language" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [T_Language].[ID] AS [ID], 
+    [T_Language].[Name] AS [Name], 
+    [T_Language].[InsertDate] AS [InsertDate], 
+    [T_Language].[CreatedUser] AS [CreatedUser]
+    FROM [dbo].[T_Language] AS [T_Language]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="T_MiddleMan02" EntityType="Self.T_MiddleMan02" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [T_MiddleMan02].[n] AS [n], 
+    [T_MiddleMan02].[i] AS [i], 
+    [T_MiddleMan02].[c] AS [c]
+    FROM [dbo].[T_MiddleMan02] AS [T_MiddleMan02]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="T_Publisher" EntityType="Self.T_Publisher" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [T_Publisher].[ID] AS [ID], 
+    [T_Publisher].[Name] AS [Name], 
+    [T_Publisher].[InsertDate] AS [InsertDate], 
+    [T_Publisher].[CreatedUser] AS [CreatedUser]
+    FROM [dbo].[T_Publisher] AS [T_Publisher]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="T_Subject" EntityType="Self.T_Subject" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [T_Subject].[ID] AS [ID], 
+    [T_Subject].[Name] AS [Name], 
+    [T_Subject].[InsertDate] AS [InsertDate], 
+    [T_Subject].[CreatedUser] AS [CreatedUser]
+    FROM [dbo].[T_Subject] AS [T_Subject]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="T_Type" EntityType="Self.T_Type" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [T_Type].[ID] AS [ID], 
+    [T_Type].[Name] AS [Name], 
+    [T_Type].[InsertDate] AS [InsertDate], 
+    [T_Type].[CreatedUser] AS [CreatedUser]
+    FROM [dbo].[T_Type] AS [T_Type]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_dbo_T_ArticleAuthor_dbo_T_Article_ArticleId" Association="Self.FK_dbo_T_ArticleAuthor_dbo_T_Article_ArticleId">
+            <End Role="T_Article" EntitySet="T_Article" />
+            <End Role="T_ArticleAuthor" EntitySet="T_ArticleAuthor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_T_ArticleAuthor_dbo_T_Author_AuthorId" Association="Self.FK_dbo_T_ArticleAuthor_dbo_T_Author_AuthorId">
+            <End Role="T_Author" EntitySet="T_Author" />
+            <End Role="T_ArticleAuthor" EntitySet="T_ArticleAuthor" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OagumDB.MetadataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="T_Article">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="PublishDate" Type="DateTime" Precision="3" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Source" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="InsertDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="T_ArticleAuthor" Relationship="Self.FK_dbo_T_ArticleAuthor_dbo_T_Article_ArticleId" FromRole="T_Article" ToRole="T_ArticleAuthor" />
+        </EntityType>
+        <EntityType Name="T_ArticleAuthor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ArticleId" Type="Int32" Nullable="false" />
+          <Property Name="AuthorId" Type="Int32" Nullable="false" />
+          <Property Name="InsertDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="T_Article" Relationship="Self.FK_dbo_T_ArticleAuthor_dbo_T_Article_ArticleId" FromRole="T_ArticleAuthor" ToRole="T_Article" />
+          <NavigationProperty Name="T_Author" Relationship="Self.FK_dbo_T_ArticleAuthor_dbo_T_Author_AuthorId" FromRole="T_ArticleAuthor" ToRole="T_Author" />
+        </EntityType>
+        <EntityType Name="T_ArticleFullMeDa">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Creator" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PubDate" Type="DateTime" Precision="3" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Publisher" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Identifier" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="PubLanguage" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Relation" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Subject" Type="String" MaxLength="510" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EntryDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="T_ArticleSmallMeDa">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="PubDate" Type="DateTime" Precision="3" />
+          <Property Name="Link" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="T_ArticleSmallMeDa_02">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KeyTitle" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="PubDate" Type="DateTime" Precision="3" />
+          <Property Name="Link" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="T_ArticleVeryFullMeDa">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="aSSN" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="bSSN" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Creator" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ExtraId1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ExtraId2" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PubDate" Type="DateTime" Precision="3" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Publisher" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PubLanguage" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Relation" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="Subject" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EntryDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="T_ArticleVeryFullMeDa_02">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="aSSN" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="bSSN" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Creator" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ExtraId1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ExtraId2" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PubDate" Type="DateTime" Precision="3" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Publisher" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PubLanguage" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Relation" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="Subject" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="T_Author">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="InsertDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="T_ArticleAuthor" Relationship="Self.FK_dbo_T_ArticleAuthor_dbo_T_Author_AuthorId" FromRole="T_Author" ToRole="T_ArticleAuthor" />
+        </EntityType>
+        <EntityType Name="T_AuthorSmallestMeDa">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="T_AuthorSmallMeDa">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Title" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="PubDate" Type="DateTime" Precision="3" />
+          <Property Name="Author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Link" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="T_AuthorSmallMeDa_02">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Title" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="PubDate" Type="DateTime" Precision="3" />
+          <Property Name="Author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Link" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="T_IOP_4162014_DATA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Publisher" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="Source" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="InsertDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="T_IOP_4162014_DATA_02">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Publisher" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="Source" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="InsertDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="T_PublisherSmallMeDa">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Title" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="PubDate" Type="DateTime" Precision="3" />
+          <Property Name="Publisher" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Link" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="T_SubjectSmallMeDa">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Title" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="PubDate" Type="DateTime" Precision="3" />
+          <Property Name="Subject" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Link" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="T_SubjectSmallMeDa_02">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Title" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="PubDate" Type="DateTime" Precision="3" />
+          <Property Name="Subject" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Link" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="T_ArticleExtraId">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExtraId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Flag" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="InsertDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedUser" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="T_ArticleSSN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ArticleId" Type="Int32" />
+          <Property Name="SSN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Flag" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="InsertDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedUser" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="T_Language">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="InsertDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedUser" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="T_MiddleMan02">
+          <Key>
+            <PropertyRef Name="i" />
+            <PropertyRef Name="c" />
+          </Key>
+          <Property Name="n" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="i" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="c" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Publisher">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="InsertDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedUser" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="T_Subject">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="InsertDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedUser" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="T_Type">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="InsertDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedUser" Type="DateTime" Precision="3" />
+        </EntityType>
+        <Association Name="FK_dbo_T_ArticleAuthor_dbo_T_Article_ArticleId">
+          <End Role="T_Article" Type="Self.T_Article" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="T_ArticleAuthor" Type="Self.T_ArticleAuthor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Article">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_ArticleAuthor">
+              <PropertyRef Name="ArticleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_T_ArticleAuthor_dbo_T_Author_AuthorId">
+          <End Role="T_Author" Type="Self.T_Author" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="T_ArticleAuthor" Type="Self.T_ArticleAuthor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Author">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_ArticleAuthor">
+              <PropertyRef Name="AuthorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="T_Article" EntityType="Self.T_Article" />
+          <EntitySet Name="T_ArticleAuthor" EntityType="Self.T_ArticleAuthor" />
+          <EntitySet Name="T_ArticleFullMeDa" EntityType="Self.T_ArticleFullMeDa" />
+          <EntitySet Name="T_ArticleSmallMeDa" EntityType="Self.T_ArticleSmallMeDa" />
+          <EntitySet Name="T_ArticleSmallMeDa_02" EntityType="Self.T_ArticleSmallMeDa_02" />
+          <EntitySet Name="T_ArticleVeryFullMeDa" EntityType="Self.T_ArticleVeryFullMeDa" />
+          <EntitySet Name="T_ArticleVeryFullMeDa_02" EntityType="Self.T_ArticleVeryFullMeDa_02" />
+          <EntitySet Name="T_Author" EntityType="Self.T_Author" />
+          <EntitySet Name="T_AuthorSmallestMeDa" EntityType="Self.T_AuthorSmallestMeDa" />
+          <EntitySet Name="T_AuthorSmallMeDa" EntityType="Self.T_AuthorSmallMeDa" />
+          <EntitySet Name="T_AuthorSmallMeDa_02" EntityType="Self.T_AuthorSmallMeDa_02" />
+          <EntitySet Name="T_IOP_4162014_DATA" EntityType="Self.T_IOP_4162014_DATA" />
+          <EntitySet Name="T_IOP_4162014_DATA_02" EntityType="Self.T_IOP_4162014_DATA_02" />
+          <EntitySet Name="T_PublisherSmallMeDa" EntityType="Self.T_PublisherSmallMeDa" />
+          <EntitySet Name="T_SubjectSmallMeDa" EntityType="Self.T_SubjectSmallMeDa" />
+          <EntitySet Name="T_SubjectSmallMeDa_02" EntityType="Self.T_SubjectSmallMeDa_02" />
+          <EntitySet Name="T_ArticleExtraId" EntityType="Self.T_ArticleExtraId" />
+          <EntitySet Name="T_ArticleSSN" EntityType="Self.T_ArticleSSN" />
+          <EntitySet Name="T_Language" EntityType="Self.T_Language" />
+          <EntitySet Name="T_MiddleMan02" EntityType="Self.T_MiddleMan02" />
+          <EntitySet Name="T_Publisher" EntityType="Self.T_Publisher" />
+          <EntitySet Name="T_Subject" EntityType="Self.T_Subject" />
+          <EntitySet Name="T_Type" EntityType="Self.T_Type" />
+          <AssociationSet Name="FK_dbo_T_ArticleAuthor_dbo_T_Article_ArticleId" Association="Self.FK_dbo_T_ArticleAuthor_dbo_T_Article_ArticleId">
+            <End Role="T_Article" EntitySet="T_Article" />
+            <End Role="T_ArticleAuthor" EntitySet="T_ArticleAuthor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_T_ArticleAuthor_dbo_T_Author_AuthorId" Association="Self.FK_dbo_T_ArticleAuthor_dbo_T_Author_AuthorId">
+            <End Role="T_Author" EntitySet="T_Author" />
+            <End Role="T_ArticleAuthor" EntitySet="T_ArticleAuthor" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OagumDBMetadataModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="T_Article">
+            <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_Article">
+              <MappingFragment StoreEntitySet="T_Article">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_ArticleAuthor">
+            <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_ArticleAuthor">
+              <MappingFragment StoreEntitySet="T_ArticleAuthor">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ArticleId" ColumnName="ArticleId" />
+                <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_ArticleFullMeDa">
+            <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_ArticleFullMeDa">
+              <MappingFragment StoreEntitySet="T_ArticleFullMeDa">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="PubDate" ColumnName="PubDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Publisher" ColumnName="Publisher" />
+                <ScalarProperty Name="Identifier" ColumnName="Identifier" />
+                <ScalarProperty Name="PubLanguage" ColumnName="PubLanguage" />
+                <ScalarProperty Name="Relation" ColumnName="Relation" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_ArticleSmallMeDa">
+            <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_ArticleSmallMeDa">
+              <MappingFragment StoreEntitySet="T_ArticleSmallMeDa">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="PubDate" ColumnName="PubDate" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_ArticleSmallMeDa_02">
+            <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_ArticleSmallMeDa_02">
+              <MappingFragment StoreEntitySet="T_ArticleSmallMeDa_02">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="KeyTitle" ColumnName="KeyTitle" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="PubDate" ColumnName="PubDate" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_ArticleVeryFullMeDa">
+            <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_ArticleVeryFullMeDa">
+              <MappingFragment StoreEntitySet="T_ArticleVeryFullMeDa">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="aSSN" ColumnName="aSSN" />
+                <ScalarProperty Name="bSSN" ColumnName="bSSN" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="ExtraId1" ColumnName="ExtraId1" />
+                <ScalarProperty Name="ExtraId2" ColumnName="ExtraId2" />
+                <ScalarProperty Name="PubDate" ColumnName="PubDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Publisher" ColumnName="Publisher" />
+                <ScalarProperty Name="PubLanguage" ColumnName="PubLanguage" />
+                <ScalarProperty Name="Relation" ColumnName="Relation" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_ArticleVeryFullMeDa_02">
+            <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_ArticleVeryFullMeDa_02">
+              <MappingFragment StoreEntitySet="T_ArticleVeryFullMeDa_02">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="aSSN" ColumnName="aSSN" />
+                <ScalarProperty Name="bSSN" ColumnName="bSSN" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="ExtraId1" ColumnName="ExtraId1" />
+                <ScalarProperty Name="ExtraId2" ColumnName="ExtraId2" />
+                <ScalarProperty Name="PubDate" ColumnName="PubDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Publisher" ColumnName="Publisher" />
+                <ScalarProperty Name="PubLanguage" ColumnName="PubLanguage" />
+                <ScalarProperty Name="Relation" ColumnName="Relation" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Author">
+            <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_Author">
+              <MappingFragment StoreEntitySet="T_Author">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_AuthorSmallestMeDa">
+            <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_AuthorSmallestMeDa">
+              <MappingFragment StoreEntitySet="T_AuthorSmallestMeDa">
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_AuthorSmallMeDa">
+            <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_AuthorSmallMeDa">
+              <MappingFragment StoreEntitySet="T_AuthorSmallMeDa">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="PubDate" ColumnName="PubDate" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_AuthorSmallMeDa_02">
+            <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_AuthorSmallMeDa_02">
+              <MappingFragment StoreEntitySet="T_AuthorSmallMeDa_02">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="PubDate" ColumnName="PubDate" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_IOP_4162014_DATA">
+            <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_IOP_4162014_DATA">
+              <MappingFragment StoreEntitySet="T_IOP_4162014_DATA">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Publisher" ColumnName="Publisher" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_IOP_4162014_DATA_02">
+            <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_IOP_4162014_DATA_02">
+              <MappingFragment StoreEntitySet="T_IOP_4162014_DATA_02">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Publisher" ColumnName="Publisher" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_PublisherSmallMeDa">
+            <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_PublisherSmallMeDa">
+              <MappingFragment StoreEntitySet="T_PublisherSmallMeDa">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="PubDate" ColumnName="PubDate" />
+                <ScalarProperty Name="Publisher" ColumnName="Publisher" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_SubjectSmallMeDa">
+            <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_SubjectSmallMeDa">
+              <MappingFragment StoreEntitySet="T_SubjectSmallMeDa">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="PubDate" ColumnName="PubDate" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_SubjectSmallMeDa_02">
+            <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_SubjectSmallMeDa_02">
+              <MappingFragment StoreEntitySet="T_SubjectSmallMeDa_02">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="PubDate" ColumnName="PubDate" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_ArticleExtraId">
+            <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_ArticleExtraId">
+              <MappingFragment StoreEntitySet="T_ArticleExtraId">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ExtraId" ColumnName="ExtraId" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_ArticleSSN">
+            <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_ArticleSSN">
+              <MappingFragment StoreEntitySet="T_ArticleSSN">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ArticleId" ColumnName="ArticleId" />
+                <ScalarProperty Name="SSN" ColumnName="SSN" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Language">
+            <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_Language">
+              <MappingFragment StoreEntitySet="T_Language">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_MiddleMan02">
+            <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_MiddleMan02">
+              <MappingFragment StoreEntitySet="T_MiddleMan02">
+                <ScalarProperty Name="n" ColumnName="n" />
+                <ScalarProperty Name="i" ColumnName="i" />
+                <ScalarProperty Name="c" ColumnName="c" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Publisher">
+            <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_Publisher">
+              <MappingFragment StoreEntitySet="T_Publisher">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subject">
+            <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_Subject">
+              <MappingFragment StoreEntitySet="T_Subject">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Type">
+            <EntityTypeMapping TypeName="OagumDB.MetadataModel.T_Type">
+              <MappingFragment StoreEntitySet="T_Type">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

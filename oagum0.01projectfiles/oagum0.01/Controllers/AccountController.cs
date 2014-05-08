@@ -47,6 +47,7 @@ namespace oagum0._01.Controllers
             {
                 using (Models.MembershipEntities1 memberDatabase = new MembershipEntities1())
                 {
+                    
                     if (!string.IsNullOrEmpty(UserName) && !string.IsNullOrEmpty(Password))
                     {
 
@@ -96,6 +97,17 @@ namespace oagum0._01.Controllers
             }
             return Json(message, JsonRequestBehavior.AllowGet);
         }
+
+
+        [AllowAnonymous]
+        public ActionResult Logout()
+        {
+            Session["userId"] = null;
+            return Redirect("Login");
+          
+        }
+
+
 
         //
         // GET: /Account/Register

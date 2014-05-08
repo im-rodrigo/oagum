@@ -75,16 +75,11 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
             dataType: "json",
             contentType: "application/json",
             success: function (returnData) {
-                if (returnData == "") {
+               
 
-                    $(Button).text("Added To Favorites")
-                    
-                }
-                else {
-
-                    $(Button).text(returnData)
-                  
-                }
+                   
+                    $(Button).find("img").attr("src","../Images/star.jpg")
+          
 
             },
             error: function (xhr, textStatus, errorThrown) {

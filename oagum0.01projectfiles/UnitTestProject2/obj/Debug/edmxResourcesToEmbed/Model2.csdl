@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OagumDB.MetadataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="T_Article">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="PublishDate" Type="DateTime" Precision="3" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Source" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="InsertDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="T_ArticleAuthor" Relationship="Self.FK_dbo_T_ArticleAuthor_dbo_T_Article_ArticleId" FromRole="T_Article" ToRole="T_ArticleAuthor" />
+  </EntityType>
+  <EntityType Name="T_ArticleAuthor">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ArticleId" Type="Int32" Nullable="false" />
+    <Property Name="AuthorId" Type="Int32" Nullable="false" />
+    <Property Name="InsertDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="T_Article" Relationship="Self.FK_dbo_T_ArticleAuthor_dbo_T_Article_ArticleId" FromRole="T_ArticleAuthor" ToRole="T_Article" />
+    <NavigationProperty Name="T_Author" Relationship="Self.FK_dbo_T_ArticleAuthor_dbo_T_Author_AuthorId" FromRole="T_ArticleAuthor" ToRole="T_Author" />
+  </EntityType>
+  <EntityType Name="T_ArticleFullMeDa">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Creator" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PubDate" Type="DateTime" Precision="3" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Publisher" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Identifier" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="PubLanguage" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Relation" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Subject" Type="String" MaxLength="510" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="EntryDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="T_ArticleSmallMeDa">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="PubDate" Type="DateTime" Precision="3" />
+    <Property Name="Link" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="T_ArticleSmallMeDa_02">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KeyTitle" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="PubDate" Type="DateTime" Precision="3" />
+    <Property Name="Link" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="T_ArticleVeryFullMeDa">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="aSSN" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="bSSN" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Creator" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ExtraId1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ExtraId2" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="PubDate" Type="DateTime" Precision="3" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Publisher" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PubLanguage" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Relation" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="Subject" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="EntryDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="T_ArticleVeryFullMeDa_02">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="aSSN" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="bSSN" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Creator" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ExtraId1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ExtraId2" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="PubDate" Type="DateTime" Precision="3" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Publisher" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PubLanguage" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Relation" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="Subject" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="T_Author">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InsertDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="T_ArticleAuthor" Relationship="Self.FK_dbo_T_ArticleAuthor_dbo_T_Author_AuthorId" FromRole="T_Author" ToRole="T_ArticleAuthor" />
+  </EntityType>
+  <EntityType Name="T_AuthorSmallestMeDa">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="T_AuthorSmallMeDa">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Title" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="PubDate" Type="DateTime" Precision="3" />
+    <Property Name="Author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Link" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="T_AuthorSmallMeDa_02">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Title" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="PubDate" Type="DateTime" Precision="3" />
+    <Property Name="Author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Link" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="T_IOP_4162014_DATA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Publisher" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="Source" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="InsertDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="T_IOP_4162014_DATA_02">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Publisher" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="Source" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="InsertDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="T_PublisherSmallMeDa">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Title" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="PubDate" Type="DateTime" Precision="3" />
+    <Property Name="Publisher" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Link" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="T_SubjectSmallMeDa">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Title" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="PubDate" Type="DateTime" Precision="3" />
+    <Property Name="Subject" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Link" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="T_SubjectSmallMeDa_02">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Title" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="PubDate" Type="DateTime" Precision="3" />
+    <Property Name="Subject" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Link" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="T_ArticleExtraId">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ExtraId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Flag" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="InsertDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedUser" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="T_ArticleSSN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ArticleId" Type="Int32" />
+    <Property Name="SSN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Flag" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="InsertDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedUser" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="T_Language">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InsertDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedUser" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="T_MiddleMan02">
+    <Key>
+      <PropertyRef Name="i" />
+      <PropertyRef Name="c" />
+    </Key>
+    <Property Name="n" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="i" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="c" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Publisher">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="InsertDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedUser" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="T_Subject">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InsertDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedUser" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="T_Type">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InsertDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedUser" Type="DateTime" Precision="3" />
+  </EntityType>
+  <Association Name="FK_dbo_T_ArticleAuthor_dbo_T_Article_ArticleId">
+    <End Role="T_Article" Type="Self.T_Article" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="T_ArticleAuthor" Type="Self.T_ArticleAuthor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Article">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="T_ArticleAuthor">
+        <PropertyRef Name="ArticleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_T_ArticleAuthor_dbo_T_Author_AuthorId">
+    <End Role="T_Author" Type="Self.T_Author" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="T_ArticleAuthor" Type="Self.T_ArticleAuthor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Author">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="T_ArticleAuthor">
+        <PropertyRef Name="AuthorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="T_Article" EntityType="Self.T_Article" />
+    <EntitySet Name="T_ArticleAuthor" EntityType="Self.T_ArticleAuthor" />
+    <EntitySet Name="T_ArticleFullMeDa" EntityType="Self.T_ArticleFullMeDa" />
+    <EntitySet Name="T_ArticleSmallMeDa" EntityType="Self.T_ArticleSmallMeDa" />
+    <EntitySet Name="T_ArticleSmallMeDa_02" EntityType="Self.T_ArticleSmallMeDa_02" />
+    <EntitySet Name="T_ArticleVeryFullMeDa" EntityType="Self.T_ArticleVeryFullMeDa" />
+    <EntitySet Name="T_ArticleVeryFullMeDa_02" EntityType="Self.T_ArticleVeryFullMeDa_02" />
+    <EntitySet Name="T_Author" EntityType="Self.T_Author" />
+    <EntitySet Name="T_AuthorSmallestMeDa" EntityType="Self.T_AuthorSmallestMeDa" />
+    <EntitySet Name="T_AuthorSmallMeDa" EntityType="Self.T_AuthorSmallMeDa" />
+    <EntitySet Name="T_AuthorSmallMeDa_02" EntityType="Self.T_AuthorSmallMeDa_02" />
+    <EntitySet Name="T_IOP_4162014_DATA" EntityType="Self.T_IOP_4162014_DATA" />
+    <EntitySet Name="T_IOP_4162014_DATA_02" EntityType="Self.T_IOP_4162014_DATA_02" />
+    <EntitySet Name="T_PublisherSmallMeDa" EntityType="Self.T_PublisherSmallMeDa" />
+    <EntitySet Name="T_SubjectSmallMeDa" EntityType="Self.T_SubjectSmallMeDa" />
+    <EntitySet Name="T_SubjectSmallMeDa_02" EntityType="Self.T_SubjectSmallMeDa_02" />
+    <EntitySet Name="T_ArticleExtraId" EntityType="Self.T_ArticleExtraId" />
+    <EntitySet Name="T_ArticleSSN" EntityType="Self.T_ArticleSSN" />
+    <EntitySet Name="T_Language" EntityType="Self.T_Language" />
+    <EntitySet Name="T_MiddleMan02" EntityType="Self.T_MiddleMan02" />
+    <EntitySet Name="T_Publisher" EntityType="Self.T_Publisher" />
+    <EntitySet Name="T_Subject" EntityType="Self.T_Subject" />
+    <EntitySet Name="T_Type" EntityType="Self.T_Type" />
+    <AssociationSet Name="FK_dbo_T_ArticleAuthor_dbo_T_Article_ArticleId" Association="Self.FK_dbo_T_ArticleAuthor_dbo_T_Article_ArticleId">
+      <End Role="T_Article" EntitySet="T_Article" />
+      <End Role="T_ArticleAuthor" EntitySet="T_ArticleAuthor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_T_ArticleAuthor_dbo_T_Author_AuthorId" Association="Self.FK_dbo_T_ArticleAuthor_dbo_T_Author_AuthorId">
+      <End Role="T_Author" EntitySet="T_Author" />
+      <End Role="T_ArticleAuthor" EntitySet="T_ArticleAuthor" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

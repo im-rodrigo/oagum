@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Eyes.CodedUI</id>
+    <version>1.17</version>
+    <authors>Applitools</authors>
+    <owners>Applitools</owners>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <projectUrl>http://applitools.com/</projectUrl>
+    <iconUrl>https://eyeswestus.blob.core.windows.net/eyes-images/applitoolseye30x30.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Applitools Eyes adds automated visual validation to your Coded UI tests. With Applitools Eyes, you can automatically validate the correctness of your application's  UI layout, content and appearance. To learn more, visit http://applitools.com.</description>
+    <summary>Applitools Eyes SDK for Microsoft Coded UI</summary>
+    <releaseNotes>* Adjusted long running request support following server API changes.
+* Improved capturing of test actions (clicks, etc.).</releaseNotes>
+    <copyright>Copyright 2013</copyright>
+    <tags>applitools coded ui codedui eyes net40 net45</tags>
+  </metadata>
+</package>
