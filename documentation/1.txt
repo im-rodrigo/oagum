@@ -1,0 +1,22 @@
+//this code is for registration of user information
+
+    public class UserInformation
+    {
+
+        public int Id { get; set; }
+
+        public int UserId { get; set; }
+
+        public int GroupId { get; set; }
+
+        public string Email { get; set; }
+
+        public string SecurityQuestion { get; set; }
+
+        public string SecurityAnswer { get; set; }
+
+        public DateTime? RegTime { get; set; }
+
+        public DateTime? LastLoginTime { get; set; }
+
+    }
